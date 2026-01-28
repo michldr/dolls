@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Sync // Phygital Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Heebo:wght@300;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="scan-line"></div>
+    <div id="flash"></div>
+
+    <div id="sync-screen" class="hud-overlay">
+        <div class="sync-box">
+            <h1>DOLL_SYNC // INITIALIZATION</h1>
+            <input type="text" id="user-name" placeholder="הכנס שם..." class="terminal-input">
+            
+            <div class="upload-area">
+                <input type="file" id="doll-photo-input" accept="image/*" hidden>
+                <button class="btn" onclick="document.getElementById('doll-photo-input').click()">סרוק בובה (העלה תמונה שקופה)</button>
+                <p id="file-status">סטטוס: ממתין לסריקה...</p>
+            </div>
+
+            <button class="btn btn-pink" onclick="initializePortal()">התחל סנכרון</button>
+        </div>
+    </div>
+
+    <div id="main-interface" style="display: none;">
+        <div class="hud-header">
+            <h2 id="welcome-message">SYS_READY // </h2>
+            <select id="destination" onchange="startTravel(this.value)">
+                <option value="">-- בחר יעד לטיול --</option>
+            </select>
+        </div>
+
+        <div id="map-viewport">
+            <div id="map-zoom-container">
+                <svg viewBox="0 0 300 850" xmlns="http://www.w3.org/2000/svg">
+                    <path class="israel-shape" d="M162,15 L178,25 L187,45 L196,70 L203,100 L218,140 L228,185 L220,215 L205,235 L196,260 L195,295 L203,330 L215,370 L205,420 L190,460 L178,510 L165,560 L155,610 L142,660 L132,720 L128,780 L125,835 L105,835 L90,780 L80,720 L78,650 L85,580 L98,520 L98,460 L85,400 L72,330 L65,270 L68,220 L85,195 L95,155 L102,115 L110,75 L120,45 L135,30 L150,20 Z" />
+                </svg>
+                <div id="markers-layer"></div>
+                <div id="doll-container">
+                    <img id="map-doll-img" src="" style="display:none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="travel-report" class="modal">
+        <div class="modal-container">
+            <div class="selfie-view">
+                <img id="city-bg" src="">
+                
+                <div class="doll-overlay">
+                    <img id="selfie-doll-img" src="">
+                </div>
+            </div>
+            <div class="fact-card">
+                <h2 id="city-name">שם העיר</h2>
+                <hr style="border:1px solid var(--neon-cyan); margin:15px 0;">
+                <p id="city-fact"></p>
+                <button class="btn btn-pink" onclick="closeTravel()">חזור למפה</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cities.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

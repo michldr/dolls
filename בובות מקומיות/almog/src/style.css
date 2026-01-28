@@ -1,0 +1,88 @@
+:root {
+    --neon-pink: #ff00ff;
+    --neon-cyan: #00ffff;
+    --bg-black: #020005;
+    --glass: rgba(13, 2, 33, 0.96);
+}
+
+body, html {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    background: var(--bg-black); color: white;
+    font-family: 'Orbitron', 'Heebo', sans-serif; overflow: hidden;
+    direction: rtl;
+}
+
+/* אפקטים של רקע */
+.bg-grid {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px; z-index: 1; pointer-events: none;
+}
+
+.scan-line {
+    position: fixed; top: 0; left: 0; width: 100%; height: 4px;
+    background: rgba(0, 255, 255, 0.2); box-shadow: 0 0 20px var(--neon-cyan);
+    z-index: 2; animation: scanMove 8s linear infinite; opacity: 0.5;
+}
+
+@keyframes scanMove { 0% { top: -5%; } 100% { top: 105%; } }
+
+/* מסך סנכרון */
+.hud-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95); z-index: 5000; display: flex; align-items: center; justify-content: center;
+}
+
+.sync-box {
+    width: 450px; padding: 40px; border: 2px solid var(--neon-cyan);
+    text-align: center; background: var(--glass); box-shadow: 0 0 40px var(--neon-cyan);
+}
+
+.terminal-input {
+    width: 80%; background: transparent; border: 1px solid var(--neon-pink);
+    color: var(--neon-pink); padding: 12px; margin: 25px 0; font-family: 'Share Tech Mono';
+    text-align: center; font-size: 1.2rem; outline: none;
+}
+
+/* ממשק המפה */
+.hud-header { padding: 20px; text-align: center; border-bottom: 2px solid var(--neon-cyan); background: rgba(0,0,0,0.8); }
+
+#map-viewport { height: 80vh; display: flex; justify-content: center; align-items: center; }
+#map-zoom-container { position: relative; transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1); }
+svg { height: 75vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
+.israel-shape { fill: rgba(0,255,255,0.02); stroke: var(--neon-cyan); stroke-width: 1.5; }
+
+/* הבובה על המפה */
+#doll-container { 
+    position: absolute; width: 60px; height: 60px; 
+    transform: translate(-50%, -50%); transition: 2s ease-in-out; 
+    z-index: 60; pointer-events: none;
+}
+#map-doll-img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 8px var(--neon-cyan)); }
+
+/* סלפי ומודאל */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9000; display: none; align-items: center; justify-content: center; }
+.modal-container { display: flex; border: 1px solid var(--neon-cyan); background: var(--bg-black); }
+.selfie-view { position: relative; width: 550px; height: 650px; overflow: hidden; background: #000; }
+#city-bg { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: opacity 0.5s ease-in-out; /* Smooth fade effect */
+}
+.doll-overlay { 
+    position: absolute; bottom: -20px; right: -20px; 
+    width: 380px; transform: rotate(-5deg); 
+    z-index: 10;
+}
+#selfie-doll-img { 
+    width: 100%; 
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7)); /* צל שנותן עומק */
+}
+
+.fact-card { width: 320px; padding: 40px; background: var(--glass); text-align: right; border-right: 1px solid var(--neon-cyan); }
+.btn { background: transparent; border: 1px solid var(--neon-cyan); color: var(--neon-cyan); padding: 12px 25px; cursor: pointer; font-family: 'Orbitron'; margin: 10px; font-weight: bold; transition: 0.3s; }
+.btn:hover { background: var(--neon-cyan); color: #000; }
+.btn-pink { border-color: var(--neon-pink); color: var(--neon-pink); }
+
+#flash { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; opacity: 0; z-index: 9999; pointer-events: none; transition: 0.1s; }
