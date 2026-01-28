@@ -31,7 +31,7 @@ const missionControl = {
             "הכרמלית: בחיפה פועלת הרכבת התחתית היחידה בישראל (שהיא למעשה פוניקולר).",
             "עיר נמל: נמל חיפה הוא אחד הנמלים הגדולים והחשובים במזרח התיכון."
         ], 
-        photos: ["https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop"],
+        photos: [""],
         x: 25, y: 20 
     },
     "beersheba": { 
@@ -119,7 +119,7 @@ const missionControl = {
             "עיר מתוכננת: אשדוד תוכננה מראש עם רחובות רחבים ורובעים מסודרים.",
             "גבעת יונה: על פי המסורת, זהו מקום קברו של יונה הנביא."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: [,],
         x: 22, y: 40 
     },
     "ashkelon": { 
@@ -141,7 +141,7 @@ const missionControl = {
             "שונית האלמוגים: באילת נמצאת שונית האלמוגים הצפונית ביותר בעולם.",
             "נקודת מפגש גבולות: מאילת ניתן לראות את ירדן (עקבה), מצרים (טאבה) וערב הסעודית."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop",],
         x: 50, y: 95 
     },
     "ramat_gan": { 
@@ -152,7 +152,7 @@ const missionControl = {
             "עיר הגנים: העיר תוכננה במקור כעיר גנים ויש בה פארק לאומי רחב ידיים.",
             "מגדל משה אביב: במשך שנים היה זה המגדל הגבוה ביותר בישראל (עד שנבנו מגדלים חדשים בת\"א)."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: [],
         x: 32, y: 32 
     },
     "holon": { 
@@ -163,7 +163,7 @@ const missionControl = {
             "גני סיפור: ברחבי העיר פזורים עשרות גנים ציבוריים המבוססים על ספרי ילדים קלאסיים.",
             "העדלאידע: בחג פורים מתקיימת בחולון התהלוכה הגדולה והמפורסמת ביותר בישראל."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: [],
         x: 28, y: 35 
     },
     "petah_tikva": { 
@@ -174,7 +174,7 @@ const missionControl = {
             "שוק פתח תקווה: השוק העירוני עבר חידוש והפך למתחם קולינרי שוקק.",
             "בילינסון: בעיר נמצא אחד המרכזים הרפואיים הגדולים והחשובים בישראל."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 32, y: 33 
     },
     "beit_shemesh": { 
@@ -185,7 +185,7 @@ const missionControl = {
             "מערת הנטיפים: בסמוך לעיר נמצאת מערת אבשלום, אחת ממערות הנטיפים היפות בעולם.",
             "קצב צמיחה: בית שמש היא אחת הערים בעלות קצב הצמיחה המהיר ביותר בישראל."
         ], 
-        photos: ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 42, y: 45 
     },
     "modiin": { 
@@ -196,7 +196,7 @@ const missionControl = {
             "מיקום אסטרטגי: העיר ממוקמת בדיוק באמצע הדרך בין ירושלים לתל אביב.",
             "פארק ענבה: במרכז העיר ישנו פארק ענק עם אגם מלאכותי ואמפיתיאטרון."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", ""],
         x: 38, y: 38 
     },
     "raanana": { 
@@ -207,7 +207,7 @@ const missionControl = {
             "הייטק: אזור התעשייה של העיר הוא בית לחברות טכנולוגיה בינלאומיות רבות (כמו אמדוקס בעבר).",
             "עיר ירוקה: העיר זכתה בפרסים רבים על טיפוח סביבתי ומיחזור."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 28, y: 28 
     },
     "herzliya": { 
@@ -218,7 +218,7 @@ const missionControl = {
             "המרכז הבינתחומי (רייכמן): האוניברסיטה הפרטית הראשונה בישראל נמצאת בעיר.",
             "אפולוניה: גן לאומי עם שרידי מבצר צלבני עתיק על צוק המשקיף לים."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop"],
+        photos: [""],
         x: 26, y: 26 
     },
     "kfar_saba": { 
@@ -229,7 +229,7 @@ const missionControl = {
             "בית החולים מאיר: אחד המרכזים הרפואיים החשובים באזור השרון.",
             "פארק כפר סבא: פארק רחב ידיים המשלב טבע עירוני ומתקני ספורט."
         ], 
-        photos: ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 30, y: 29 
     },
     "rishon_lezion": { 
@@ -240,7 +240,7 @@ const missionControl = {
             "סופרלנד ויס פלאנט: העיר היא מוקד בילוי ענק עם פארק שעשועים ומתחם קולנוע.",
             "העיר הרביעית בגודלה: ראשון לציון צמחה במהירות והיא אחת הערים הגדולות בישראל."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop"],
+        photos: [""],
         x: 28, y: 38 
     },
     "rehovot": { 
@@ -251,7 +251,7 @@ const missionControl = {
             "פרדסנות: בעבר הייתה רחובות מרכז גידול הדרים עולמי, וכיום יש בה מוזיאון לפרדסנות.",
             "בית הנשיא הראשון: חיים ויצמן, הנשיא הראשון של ישראל, גר ונקבר בעיר."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 32, y: 40 
     },
     "lod": { 
@@ -262,7 +262,7 @@ const missionControl = {
             "כנסיית סנט ג'ורג': על פי המסורת הנוצרית, כאן קבור גאורגיוס הקדוש הורג הדרקון.",
             "עיר עתיקה: לוד מיושבת ברציפות כבר אלפי שנים והייתה עיר בירה בתקופה הערבית הקדומה."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 30, y: 37 
     },
     "jaffa": { 
@@ -273,7 +273,7 @@ const missionControl = {
             "מגדל השעון: סמלה של יפו, נבנה לכבוד הסולטן הטורקי עבדול חמיד השני.",
             "שוק הפשפשים: אזור תוסס של עתיקות, רהיטים, ברים ומסעדות."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 28, y: 31 
     },
     "givatayim": { 
@@ -284,7 +284,7 @@ const missionControl = {
             "איכות חיים: גבעתיים מדורגת באופן עקבי במקומות הראשונים במדדי חינוך וגיוס.",
             "קירבה לת\"א: העיר גובלת בתל אביב ונחשבת לחלק אינטגרלי מהמטרופולין."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 31, y: 31 
     },
     "metula": { 
@@ -295,7 +295,7 @@ const missionControl = {
             "מפלי התנור: בסמוך למושבה נמצאת שמורת נחל עיון עם מפל התנור המרשים.",
             "גבול הלבנון: המושבה מוקפת משלושה כיוונים בגבול עם לבנון."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 40, y: 8 
     },
     "mitzpe_ramon": { 
@@ -306,7 +306,7 @@ const missionControl = {
             "יעלים: יעלים נוביים מסתובבים באופן חופשי ברחובות העיירה.",
             "מרכז אילן רמון: מרכז מבקרים המנציח את האסטרונאוט הישראלי הראשון."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 52, y: 75 
     },
     "kiryat_shmona": { 
@@ -317,7 +317,7 @@ const missionControl = {
             "רכבל צוק מנרה: מהעיר יוצא הרכבל הארוך בישראל המעפיל לרכס רמים.",
             "נחלים: נחל הזהב (עין זהב) זורם בתוך הפארק העירוני במרכז העיר."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 42, y: 12 
     },
     "nahariya": { 
@@ -328,7 +328,7 @@ const missionControl = {
             "ראש הנקרה: העיר היא שער היציאה לאתר הנקרות המפורסם בגבול הצפון.",
             "חוף הים: לנהריה טיילת חוף ארוכה המחברת בין דרום העיר לצפונה."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 18, y: 15 
     },
     "carmiel": { 
@@ -339,7 +339,7 @@ const missionControl = {
             "עיר מטופחת: כרמיאל ידועה בניקיון שלה ובגינון הציבורי המושקע.",
             "פארק הגליל: פארק ענק שהוקם על מחצבה משוקמת וכולל גשרים תלויים ומפלים."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: [""],
         x: 30, y: 18 
     },
     "zichron_yaakov": { 
@@ -350,7 +350,7 @@ const missionControl = {
             "בית אהרונסון: כאן פעלה מחתרת ניל\"י שסייעה לבריטים במלחמת העולם הראשונה.",
             "גני הנדיב: בסמוך למושבה נמצאים הגנים המרהיבים סביב קברו של הברון רוטשילד."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 22, y: 22 
     },
     "caesarea": { 
@@ -361,7 +361,7 @@ const missionControl = {
             "אמת המים: האקוודוקט המפורסם בחוף הים הוביל מים לעיר ממרחקים.",
             "נמל עתיק: שרידי הנמל שבנה הורדוס נחשבו לפלא הנדסי בעולם העתיק."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["", ""],
         x: 24, y: 27 
     },
     "beit_alfa": { 
@@ -903,4 +903,5 @@ const missionControl = {
         photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Snir_neighborhood.jpg/250px-Snir_neighborhood.jpg"],
         x: 42, y: 14 
     }
+
 };
