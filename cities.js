@@ -21,7 +21,7 @@ const missionControl = {
             "יפו העתיקה: העיר משלבת את יפו העתיקה, אחת מערי הנמל העתיקות בעולם."
         ], 
         photos: ["https://images.unsplash.com/photo-1537236398214-4e4d8876a2b0?w=400&h=300&fit=crop"],
-        x: 30, y: 30 
+        x: 40, y: 40 
     },
     "haifa": { 
         name: "חיפה", 
@@ -903,4 +903,5 @@ const missionControl = {
         photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Snir_neighborhood.jpg/250px-Snir_neighborhood.jpg"],
         x: 42, y: 14 
     }
+
 };
