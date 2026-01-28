@@ -8,7 +8,7 @@ const missionControl = {
             "חוק העיר העתיקה: בעיר העתיקה ארבעה רובעים: היהודי, המוסלמי, הנוצרי והארמני.",
             "אבן ירושלמית: חוק עירוני מחייב ציפוי מבנים באבן ירושלמית, המעניקה לעיר את גוון הזהב שלה."
         ],
-        photos: ["https://images.unsplash.com/photo-1571157236917-4e5dc8476555?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/121086-Jerusalem-Mount-of-Olives_%2826988237083%29.jpg/330px-121086-Jerusalem-Mount-of-Olives_%2826988237083%29.jpg"],
         x: 50, y: 39 
     },
     "tel_aviv": { 
@@ -904,3 +904,4 @@ const missionControl = {
         x: 42, y: 14 
     }
 };
+
