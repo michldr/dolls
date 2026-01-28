@@ -209,3 +209,19 @@ function closeTravel() {
     document.getElementById('map-zoom-container').style.transform = 'scale(1) translate(0,0)';
     document.getElementById('destination').value = "";
 }
+
+// --- NEW BUTTON LOGIC ---
+
+function confirmCitySelection() {
+    // 1. Check if a city is currently selected
+    if (!currentCityKey) return;
+
+    // 2. Get the city name
+    const cityName = missionControl[currentCityKey].name;
+
+    // 3. Show a message (You can change this message!)
+    alert("איזה יופי! בחרת ב-" + cityName + ". בואו נתחיל!");
+
+    // 4. Close the window
+    closeTravel();
+}
