@@ -86,7 +86,7 @@ function initializePortal() {
     // Hide Sync Screen, Show Main Interface
     document.getElementById('sync-screen').style.display = 'none';
     document.getElementById('main-interface').style.display = 'block';
-    document.getElementById('welcome-message').innerText = `שלום ${userName}, לאן תרצה לטייל?`;
+    document.getElementById('welcome-message').innerText = `שלום ${userName}, באיזו עיר אתה גר?`;
     
     // Set the synced doll on the map
     document.getElementById('map-doll-img').src = dollPhotoURL;
