@@ -398,19 +398,14 @@ const missionControl = {
     "coral_beach": { 
         name: "חוף האלמוגים", 
         facts: ["שמורת טבע", "עושר תת-ימי", "גשרים למים", "הגנה קפדנית"], 
-        photos: ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"], 
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Eilat_Coral_Reserve.jpg/250px-Eilat_Coral_Reserve.jpg"], 
         x: 50, y: 96 
     },
     "latrun": { 
         name: "לטרון", 
         facts: ["יד לשריון", "מנזר השתקנים", "קרבות תש\"ח", "מיני ישראל"], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop"], 
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Latrun-Monastery.jpg/330px-Latrun-Monastery.jpg"], 
         x: 44, y: 40 
     },
-    "jericho": { 
-        name: "יריחו", 
-        facts: ["העיר העתיקה בעולם", "העיר הנמוכה בעולם", "עיר התמרים"], 
-        photos: [], 
-        x: 55, y: 35 
-    }
 };
+
