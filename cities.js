@@ -75,7 +75,7 @@ const missionControl = {
             "בוץ מרפא: הבוץ המינרלי של ים המלח ידוע בסגולותיו הרפואיות לעור.",
             "בולענים: בשנים האחרונות נוצרו אלפי בולענים בחופים עקב ירידת מפלס המים."
         ], 
-        photos: ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["https://he.wikipedia.org/wiki/%D7%9E%D7%99_%D7%99%D7%9D_%D7%94%D7%9E%D7%9C%D7%97"],
         x: 55, y: 55 
     },
     "nazareth": { 
@@ -414,6 +414,7 @@ const missionControl = {
         x: 55, y: 35 
     }
 };
+
 
 
 
