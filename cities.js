@@ -42,7 +42,7 @@ const missionControl = {
             "באר אברהם: על פי המסורת, זוהי העיר בה חפר אברהם אבינו את הבאר וכרת ברית עם אבימלך.",
             "אדריכלות ברוטליסטית: העיר ידועה במבני בטון ייחודיים ושכונות שתוכננו כניסוי אדריכלי בשנות ה-50."
         ], 
-        photos: ["https://images.unsplash.com/photo-1600313872099-eb7d52282cf1?w=400&h=300&fit=crop"],
+        photos: ["https://he.wikipedia.org/wiki/%D7%91%D7%90%D7%A8_%D7%A9%D7%91%D7%A2"],
         x: 45, y: 70 
     },
     "safed": { 
@@ -414,6 +414,7 @@ const missionControl = {
         x: 55, y: 35 
     }
 };
+
 
 
 
