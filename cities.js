@@ -141,7 +141,7 @@ const missionControl = {
             "שונית האלמוגים: באילת נמצאת שונית האלמוגים הצפונית ביותר בעולם.",
             "נקודת מפגש גבולות: מאילת ניתן לראות את ירדן (עקבה), מצרים (טאבה) וערב הסעודית."
         ], 
-        photos: [""],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Eilat_ST_05.jpg/960px-Eilat_ST_05.jpg"],
         x: 50, y: 95 
     },
     "ramat_gan": { 
@@ -152,7 +152,7 @@ const missionControl = {
             "עיר הגנים: העיר תוכננה במקור כעיר גנים ויש בה פארק לאומי רחב ידיים.",
             "מגדל משה אביב: במשך שנים היה זה המגדל הגבוה ביותר בישראל (עד שנבנו מגדלים חדשים בת\"א)."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/View_of_Diamond_Exchange_Center_from_Azrieli_Center.jpg/330px-View_of_Diamond_Exchange_Center_from_Azrieli_Center.jpg"],
         x: 32, y: 32 
     },
     "holon": { 
@@ -163,7 +163,7 @@ const missionControl = {
             "גני סיפור: ברחבי העיר פזורים עשרות גנים ציבוריים המבוססים על ספרי ילדים קלאסיים.",
             "העדלאידע: בחג פורים מתקיימת בחולון התהלוכה הגדולה והמפורסמת ביותר בישראל."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/View_of_Diamond_Exchange_Center_from_Azrieli_Center.jpg/330px-View_of_Diamond_Exchange_Center_from_Azrieli_Center.jpg"],
         x: 28, y: 35 
     },
     "petah_tikva": { 
@@ -174,7 +174,7 @@ const missionControl = {
             "שוק פתח תקווה: השוק העירוני עבר חידוש והפך למתחם קולינרי שוקק.",
             "בילינסון: בעיר נמצא אחד המרכזים הרפואיים הגדולים והחשובים בישראל."
         ], 
-        photos: [""],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Jabotinsky_Skyline_Petah_Tikva_01.jpg/500px-Jabotinsky_Skyline_Petah_Tikva_01.jpg"],
         x: 32, y: 33 
     },
     "beit_shemesh": { 
@@ -196,7 +196,7 @@ const missionControl = {
             "מיקום אסטרטגי: העיר ממוקמת בדיוק באמצע הדרך בין ירושלים לתל אביב.",
             "פארק ענבה: במרכז העיר ישנו פארק ענק עם אגם מלאכותי ואמפיתיאטרון."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/93658_central_modi%27in_PikiWiki_Israel.jpg/500px-93658_central_modi%27in_PikiWiki_Israel.jpg"],
         x: 38, y: 38 
     },
     "raanana": { 
@@ -207,7 +207,7 @@ const missionControl = {
             "הייטק: אזור התעשייה של העיר הוא בית לחברות טכנולוגיה בינלאומיות רבות (כמו אמדוקס בעבר).",
             "עיר ירוקה: העיר זכתה בפרסים רבים על טיפוח סביבתי ומיחזור."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/WikiAir_Flight_IL-14-02_-_Raanana_%282%29.JPG/500px-WikiAir_Flight_IL-14-02_-_Raanana_%282%29.JPG"],
         x: 28, y: 28 
     },
     "herzliya": { 
@@ -218,7 +218,7 @@ const missionControl = {
             "המרכז הבינתחומי (רייכמן): האוניברסיטה הפרטית הראשונה בישראל נמצאת בעיר.",
             "אפולוניה: גן לאומי עם שרידי מבצר צלבני עתיק על צוק המשקיף לים."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/%D7%A6%D7%99%D7%9C%D7%95%D7%9D_%D7%9E%D7%94%D7%90%D7%95%D7%99%D7%A8_%D7%A9%D7%9C_%D7%94%D7%A8%D7%A6%D7%9C%D7%99%D7%94_23.jpg/330px-%D7%A6%D7%99%D7%9C%D7%95%D7%9D_%D7%9E%D7%94%D7%90%D7%95%D7%99%D7%A8_%D7%A9%D7%9C_%D7%94%D7%A8%D7%A6%D7%9C%D7%99%D7%94_23.jpg"],
         x: 26, y: 26 
     },
     "kfar_saba": { 
@@ -229,7 +229,7 @@ const missionControl = {
             "בית החולים מאיר: אחד המרכזים הרפואיים החשובים באזור השרון.",
             "פארק כפר סבא: פארק רחב ידיים המשלב טבע עירוני ומתקני ספורט."
         ], 
-        photos: ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A4%D7%A0%D7%95%D7%A8%D7%9E%D7%99%D7%AA_%D7%A9%D7%9C_%D7%91%D7%99%D7%AA_%D7%90%D7%94%D7%A8%D7%95%D7%A0%D7%95%D7%91%D7%99%D7%A5%27_%D7%95%D7%A8%D7%97%D7%91%D7%AA_%D7%A7%D7%A0%D7%99%D7%95%D7%9F_%D7%A2%D7%A8%D7%99%D7%9D.jpg/500px-%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A4%D7%A0%D7%95%D7%A8%D7%9E%D7%99%D7%AA_%D7%A9%D7%9C_%D7%91%D7%99%D7%AA_%D7%90%D7%94%D7%A8%D7%95%D7%A0%D7%95%D7%91%D7%99%D7%A5%27_%D7%95%D7%A8%D7%97%D7%91%D7%AA_%D7%A7%D7%A0%D7%99%D7%95%D7%9F_%D7%A2%D7%A8%D7%99%D7%9D.jpg"],
         x: 30, y: 29 
     },
     "rishon_lezion": { 
@@ -240,7 +240,7 @@ const missionControl = {
             "סופרלנד ויס פלאנט: העיר היא מוקד בילוי ענק עם פארק שעשועים ומתחם קולנוע.",
             "העיר הרביעית בגודלה: ראשון לציון צמחה במהירות והיא אחת הערים הגדולות בישראל."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Rishon_LeZion_Aerial_View.jpg/500px-Rishon_LeZion_Aerial_View.jpg"],
         x: 28, y: 38 
     },
     "rehovot": { 
@@ -251,7 +251,7 @@ const missionControl = {
             "פרדסנות: בעבר הייתה רחובות מרכז גידול הדרים עולמי, וכיום יש בה מוזיאון לפרדסנות.",
             "בית הנשיא הראשון: חיים ויצמן, הנשיא הראשון של ישראל, גר ונקבר בעיר."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["https://govextra.gov.il/media/j4wdc54l/eyhuthaim.jpg"],
         x: 32, y: 40 
     },
     "lod": { 
@@ -262,7 +262,7 @@ const missionControl = {
             "כנסיית סנט ג'ורג': על פי המסורת הנוצרית, כאן קבור גאורגיוס הקדוש הורג הדרקון.",
             "עיר עתיקה: לוד מיושבת ברציפות כבר אלפי שנים והייתה עיר בירה בתקופה הערבית הקדומה."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/LodJune132022_01.jpg/500px-LodJune132022_01.jpg"],
         x: 30, y: 37 
     },
     "jaffa": { 
@@ -273,7 +273,7 @@ const missionControl = {
             "מגדל השעון: סמלה של יפו, נבנה לכבוד הסולטן הטורקי עבדול חמיד השני.",
             "שוק הפשפשים: אזור תוסס של עתיקות, רהיטים, ברים ומסעדות."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/ISR-2013-Aerial-Jaffa-Port_of_Jaffa.jpg/500px-ISR-2013-Aerial-Jaffa-Port_of_Jaffa.jpg"],
         x: 28, y: 31 
     },
     "givatayim": { 
@@ -284,7 +284,7 @@ const missionControl = {
             "איכות חיים: גבעתיים מדורגת באופן עקבי במקומות הראשונים במדדי חינוך וגיוס.",
             "קירבה לת\"א: העיר גובלת בתל אביב ונחשבת לחלק אינטגרלי מהמטרופולין."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Givatayim_City_02.jpg/330px-Givatayim_City_02.jpg"],
         x: 31, y: 31 
     },
     "metula": { 
@@ -905,3 +905,4 @@ const missionControl = {
     }
 
 };
+
