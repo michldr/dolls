@@ -6,32 +6,79 @@ let slideInterval; // Variable to control the automatic slideshow timer
 
 // --- 1. GREEN SCREEN LOGIC (Offline & Fast) ---
 
-// Handle File Input
-document.getElementById('doll-photo-input').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const statusText = document.getElementById('file-status');
-    statusText.innerText = "סטטוס: מעבד צבע ירוק...";
-    statusText.style.color = "var(--neon-cyan)";
+// Handle File Input - IMPROVED VERSION
+document.addEventListener('DOMContentLoaded', function() {
+    const dollInput = document.getElementById('doll-photo-input');
     
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        const img = new Image();
-        img.onload = function() {
-            // Process the image instantly using Chroma Key
-            dollPhotoURL = removeGreenBackground(img);
-            
-            statusText.innerText = "סטטוס: הרקע הירוק הוסר בהצלחה!";
-            statusText.style.color = "#00ff00";
+    if (!dollInput) {
+        console.error("ERROR: doll-photo-input element not found!");
+        return;
+    }
+    
+    dollInput.addEventListener('change', function(e) {
+        console.log("File input changed!"); // Debug log
+        
+        const file = e.target.files[0];
+        if (!file) {
+            console.log("No file selected");
+            return;
+        }
+        
+        console.log("File selected:", file.name, file.type); // Debug log
+        
+        const statusText = document.getElementById('file-status');
+        statusText.innerText = "סטטוס: מעבד צבע ירוק...";
+        statusText.style.color = "var(--neon-cyan)";
+        
+        const reader = new FileReader();
+        
+        reader.onerror = function() {
+            console.error("FileReader error!");
+            statusText.innerText = "שגיאה: לא הצלחנו לקרוא את הקובץ";
+            statusText.style.color = "red";
         };
-        img.src = event.target.result;
-    };
-    reader.readAsDataURL(file);
+        
+        reader.onload = function(event) {
+            console.log("File loaded successfully!"); // Debug log
+            
+            const img = new Image();
+            
+            img.onerror = function() {
+                console.error("Image loading error!");
+                statusText.innerText = "שגיאה: לא הצלחנו לטעון את התמונה";
+                statusText.style.color = "red";
+            };
+            
+            img.onload = function() {
+                console.log("Image loaded! Dimensions:", img.width, "x", img.height); // Debug log
+                
+                try {
+                    // Process the image instantly using Chroma Key
+                    dollPhotoURL = removeGreenBackground(img);
+                    
+                    console.log("Green background removed successfully!"); // Debug log
+                    console.log("dollPhotoURL length:", dollPhotoURL.length); // Debug log
+                    
+                    statusText.innerText = "סטטוס: הרקע הירוק הוסר בהצלחה! ✓";
+                    statusText.style.color = "#00ff00";
+                } catch (error) {
+                    console.error("Error removing background:", error);
+                    statusText.innerText = "שגיאה: בעיה בעיבוד התמונה";
+                    statusText.style.color = "red";
+                }
+            };
+            
+            img.src = event.target.result;
+        };
+        
+        reader.readAsDataURL(file);
+    });
 });
 
 // The Magic Function: Removes Green Pixels
 function removeGreenBackground(imageElement) {
+    console.log("Starting green background removal..."); // Debug log
+    
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     
@@ -39,12 +86,16 @@ function removeGreenBackground(imageElement) {
     canvas.width = imageElement.width;
     canvas.height = imageElement.height;
     
+    console.log("Canvas created:", canvas.width, "x", canvas.height); // Debug log
+    
     // Draw original image
     ctx.drawImage(imageElement, 0, 0);
     
     // Get raw pixel data
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const data = imageData.data; // Array of [R, G, B, A...]
+    
+    let pixelsChanged = 0; // Track how many pixels we made transparent
 
     // Loop through every pixel
     for (let i = 0; i < data.length; i += 4) {
@@ -56,25 +107,34 @@ function removeGreenBackground(imageElement) {
         // Adjust '1.4' if it removes too much or too little
         if (g > 100 && g > r * 1.4 && g > b * 1.4) {
             data[i + 3] = 0; // Set Alpha to 0 (Transparent)
+            pixelsChanged++;
         }
     }
+    
+    console.log("Pixels made transparent:", pixelsChanged); // Debug log
     
     // Put modified pixels back
     ctx.putImageData(imageData, 0, 0);
     
     // Return the new Data URL
-    return canvas.toDataURL();
+    return canvas.toDataURL('image/png');
 }
 
 // --- 2. INITIALIZATION (Login & Map Setup) ---
 
 function initializePortal() {
+    console.log("Initializing portal..."); // Debug log
+    
     const name = document.getElementById('user-name').value;
     
     if (!name) {
         alert("נא להזין שם");
         return;
     }
+    
+    console.log("User name:", name); // Debug log
+    console.log("dollPhotoURL exists:", !!dollPhotoURL); // Debug log
+    console.log("dollPhotoURL length:", dollPhotoURL.length); // Debug log
     
     if (!dollPhotoURL) {
         alert("נא להעלות תמונה של הבובה (המתן להודעה ירוקה)");
@@ -91,6 +151,8 @@ function initializePortal() {
     // Set the synced doll on the map
     document.getElementById('map-doll-img').src = dollPhotoURL;
     document.getElementById('map-doll-img').style.display = 'block';
+    
+    console.log("Doll image set on map"); // Debug log
     
     // Populate Map Markers & Dropdown from cities.js
     const markersLayer = document.getElementById('markers-layer');
@@ -112,6 +174,8 @@ function initializePortal() {
         opt.innerText = city.name;
         select.appendChild(opt);
     });
+    
+    console.log("Portal initialized successfully!"); // Debug log
 }
 
 // --- 3. TRAVEL LOGIC (Movement & Zoom) ---
