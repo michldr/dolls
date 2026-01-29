@@ -669,7 +669,7 @@ const missionControl = {
             "מכתבי ערד: באתר נמצא אוסף גדול של כתובות דיו על חרס (אוסטרקונים).",
             "באר המים: במרכז העיר העתיקה נמצא מפעל מים מרשים."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["https://baliletayel.co.il/wp-content/uploads/elementor/thumbs/%D7%AA%D7%9C-%D7%A2%D7%A8%D7%93-%D7%9E%D7%9C%D7%9E%D7%A2%D7%9C%D7%94-scaled-pxrkx758vesgh51do4ajtvkk67o8epcjvn3cfw381c.jpg.webp"],
         x: 48, y: 62 
     },
     "timna_park": { 
@@ -680,7 +680,7 @@ const missionControl = {
             "עמודי שלמה: עמודי אבן חול אדומים וטבעיים המתנשאים לגובה רב.",
             "אגם תמנע: אגם מלאכותי בלב המדבר המאפשר שיט בסירות."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/%D7%90%D7%92%D7%9D_%D7%AA%D7%9E%D7%A0%D7%A2.jpg/250px-%D7%90%D7%92%D7%9D_%D7%AA%D7%9E%D7%A0%D7%A2.jpg"],
         x: 50, y: 80 
     },
     "coral_beach": { 
@@ -691,7 +691,7 @@ const missionControl = {
             "גשרים למים: גשרים מיוחדים מאפשרים גישה למים העמוקים מבלי לפגוע באלמוגים.",
             "הגנה קפדנית: אסור לגעת באלמוגים או להאכיל את הדגים כדי לשמור על האיזון האקולוגי."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Gulf_of_Eilat_%28Red_Sea%29_coral_reefs.jpg/250px-Gulf_of_Eilat_%28Red_Sea%29_coral_reefs.jpg"],
         x: 50, y: 96 
     },
     "latrun": { 
@@ -702,11 +702,11 @@ const missionControl = {
             "קרבות תש\"ח: לטרון הייתה נקודה אסטרטגית עליה נערכו קרבות קשים במלחמת העצמאות.",
             "מיני ישראל: בסמוך נמצא הפארק המציג דגמים מוקטנים של אתרים בארץ."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Latrun-Monastery.jpg/330px-Latrun-Monastery.jpg"],
         x: 44, y: 40 
     },
     "jericho": { 
-        name: "יריחו", 
+        name: "יריחו צריך להסיר!", 
         facts: [
             "העיר העתיקה בעולם: יריחו נחשבת לעיר המיושבת ברציפות העתיקה ביותר בתבל.",
             "העיר הנמוכה בעולם: שוכנת בבקעת הירדן, מתחת לפני הים.",
@@ -717,7 +717,7 @@ const missionControl = {
         x: 54, y: 42 
     },
     "tayasir": { 
-        name: "תייסיר", 
+        name: "צריך להסיר! תייסיר", 
         facts: [
             "כפר בצפון הבקעה: יישוב פלסטיני הממוקם צפונית-מזרחית לשכם.",
             "דרך רומית: בסמוך לכפר עברה דרך רומית עתיקה.",
@@ -735,7 +735,7 @@ const missionControl = {
             "חלקאות אורגנית: הקיבוץ מגדל תמרים, זיתים וכרמים בשיטות אורגניות.",
             "נווה מדבר: הקיבוץ מהווה נקודה ירוקה ופורחת בלב המדבר השומם."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/NeotSmadarMar172022_03.jpg/250px-NeotSmadarMar172022_03.jpg"],
         x: 48, y: 86 
     },
     "kibbutz_ketura": { 
@@ -746,7 +746,7 @@ const missionControl = {
             "ערבה אינסטיטוט: מכון מחקר סביבתי המפגיש סטודנטים ישראלים, ירדנים ופלסטינים.",
             "אצות: בקיבוץ פועל מפעל חדשני לגידול אצות (אסטקסנטין)."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/KeturaMar172022_01.jpg/250px-KeturaMar172022_01.jpg"],
         x: 50, y: 90 
     },
     "kibbutz_lotan": { 
@@ -757,11 +757,11 @@ const missionControl = {
             "יהדות רפורמית: לוטן הוא אחד הקיבוצים המזוהים עם התנועה הרפורמית.",
             "גן אקולוגי: המבקרים יכולים ללמוד כיצד לחיות בהרמוניה עם הסביבה המדברית."
         ], 
-        photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"],
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/LotanMar172022_02.jpg/330px-LotanMar172022_02.jpg"],
         x: 48, y: 88 
     },
     "kibbutz_evrona": { 
-        name: "קיבוץ אברונה", 
+        name: "קיבוץ עברונה", 
         facts: [
             "בארות שרשרת: ליד הקיבוץ נמצאת מערכת השקיה קדומה (פוגארות) מהתקופה המוסלמית הקדומה.",
             "דקלי הדום: שמורת דקלי הדום, עצי דקל נדירים המתפצלים לגזעים, נמצאת בקרבת מקום.",
@@ -904,4 +904,5 @@ const missionControl = {
         x: 42, y: 14 
     }
 };
+
 
