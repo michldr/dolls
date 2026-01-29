@@ -210,18 +210,31 @@ function closeTravel() {
     document.getElementById('destination').value = "";
 }
 
-// --- NEW BUTTON LOGIC ---
+// --- NEW CONFIRMATION LOGIC ---
+
+function showConfirmDialog() {
+    // Check if a city is selected
+    if (!currentCityKey) return;
+    
+    // Show the confirmation dialog
+    document.getElementById('confirm-dialog').style.display = 'flex';
+}
+
+function closeConfirmDialog() {
+    // Hide the confirmation dialog
+    document.getElementById('confirm-dialog').style.display = 'none';
+}
 
 function confirmCitySelection() {
-    // 1. Check if a city is currently selected
-    if (!currentCityKey) return;
-
-    // 2. Get the city name
+    // Get the city name
     const cityName = missionControl[currentCityKey].name;
-
-    // 3. Show a message (You can change this message!)
-    alert("איזה יופי! בחרת ב-" + cityName + ". בואו נתחיל!");
-
-    // 4. Close the window
+    
+    // Hide the confirmation dialog
+    closeConfirmDialog();
+    
+    // Show thank you message
+    alert("תודה על ההצבעה! העיר שבחרת: " + cityName);
+    
+    // Close the travel report and return to map
     closeTravel();
 }
