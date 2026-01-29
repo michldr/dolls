@@ -130,7 +130,7 @@ function startTravel(key) {
     setTimeout(() => {
         // Zoom Effect
         const zX = (50 - target.x) * 2;
-        const zY = (50 - target.y) * 1.9;
+        const zY = (50 - target.y) * 1.6;
         zoomContainer.style.transform = `scale(5) translate(${zX}%, ${zY}%)`;
 
         setTimeout(() => {
