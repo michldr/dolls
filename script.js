@@ -54,7 +54,7 @@ function removeGreenBackground(imageElement) {
 
         // Logic: Is this pixel mostly GREEN?
         // Adjust '1.4' if it removes too much or too little
-        if (g > 100 && g > r * 1.4 && g > b * 1.4) {
+        if (g > 150 && g > r * 1.8 && g > b * 1.8) {
             data[i + 3] = 0; // Set Alpha to 0 (Transparent)
         }
     }
