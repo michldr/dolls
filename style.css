@@ -38,9 +38,9 @@ body, html {
 }
 /* ממשק המפה */
 .hud-header { padding: 20px; text-align: center; border-bottom: 2px solid var(--neon-cyan); background: rgba(0,0,0,0.8); }
-#map-viewport { height: 80vh; display: flex; justify-content: center; align-items: center; }
+#map-viewport { height: 88vh; display: flex; justify-content: center; align-items: center; }
 #map-zoom-container { position: relative; transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1); }
-svg { height: 75vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
+svg { height: 85vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
 .israel-shape { fill: rgba(0,255,255,0.02); stroke: var(--neon-cyan); stroke-width: 1.5; }
 /* הבובה על המפה */
 #doll-container { 
