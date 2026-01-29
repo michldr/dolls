@@ -53,7 +53,7 @@ const missionControl = {
             "רובע האמנים: העיר העתיקה מלאה בגלריות אמנות, בתי כנסת עתיקים וסמטאות ציוריות.",
             "פסטיבל הכליזמרים: מדי קיץ נערך בעיר פסטיבל מוזיקה יהודית בינלאומי."
         ], 
-        photos: ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Safed1.jpg/330px-Safed1.jpg"],
+        photos: ["https://he.wikipedia.org/wiki/%D7%94%D7%A2%D7%99%D7%A8_%D7%94%D7%A2%D7%AA%D7%99%D7%A7%D7%94_%D7%A9%D7%9C_%D7%A2%D7%9B%D7%95"],
         x: 35, y: 10 
     },
     "akko": { 
@@ -414,6 +414,7 @@ const missionControl = {
         x: 55, y: 35 
     }
 };
+
 
 
 
