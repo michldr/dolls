@@ -1,4 +1,4 @@
-const missionControlCities = {
+const missionControl = {
     "jerusalem": { 
         name: "ירושלים", 
         facts: [
