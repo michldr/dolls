@@ -114,3 +114,41 @@ svg { height: 75vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
     transform: scale(1.03);
     box-shadow: 0 0 25px rgba(0, 255, 0, 0.7);
 }
+    /* --- התאמות למובייל (להדביק בסוף הקובץ) --- */
+@media (max-width: 600px) {
+    /* הגדלת תיבת הכניסה */
+    .sync-box {
+        width: 85% !important;
+        padding: 30px 20px !important;
+    }
+
+    /* הגדלת שדה הזנת השם */
+    .terminal-input {
+        width: 90% !important;
+        font-size: 1.6rem !important; 
+        padding: 15px 5px !important;
+    }
+
+    .terminal-input::placeholder {
+        font-size: 1.2rem;
+    }
+
+    /* הגדלת כפתורים ללחיצה נוחה באצבע */
+    .btn {
+        width: 100% !important;
+        font-size: 1.3rem !important;
+        padding: 18px 10px !important;
+        margin: 10px 0 !important;
+    }
+
+    /* התאמת הכותרת */
+    .sync-box h1 {
+        font-size: 2.2rem !important;
+    }
+
+    /* התאמת חלונית האישור הסופית */
+    .confirm-box {
+        width: 85% !important;
+        padding: 30px !important;
+    }
+}
