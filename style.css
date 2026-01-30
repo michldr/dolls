@@ -115,41 +115,58 @@ svg { height: 75vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
     transform: scale(1.03);
     box-shadow: 0 0 25px rgba(0, 255, 0, 0.7);
 }
-    /* --- התאמות למובייל (להדביק בסוף הקובץ) --- */
-@media (max-width: 600px) {
-    /* הגדלת תיבת הכניסה */
+ @media (max-width: 600px) {
+    /* --- תיבת סנכרון (נשארת גדולה ונוחה) --- */
     .sync-box {
-        width: 85% !important;
-        padding: 30px 20px !important;
+        width: 90% !important;
+        padding: 30px 15px !important;
     }
 
-    /* הגדלת שדה הזנת השם */
     .terminal-input {
         width: 90% !important;
         font-size: 1.6rem !important; 
         padding: 15px 5px !important;
     }
 
-    .terminal-input::placeholder {
-        font-size: 1.2rem;
+    /* --- תיבת העיר (מתכווצת להתאמה למסך) --- */
+    .modal-container {
+        display: flex !important;
+        flex-direction: row !important; /* משאיר אותם אחד ליד השני */
+        width: 98vw !important; /* תופס כמעט את כל רוחב המסך */
+        height: 60vh !important; /* מגביל את הגובה כדי שלא יברח למטה */
+        border-width: 1px !important;
     }
 
-    /* הגדלת כפתורים ללחיצה נוחה באצבע */
+    .selfie-view {
+        width: 60% !important; /* התמונה תופסת קצת יותר מחצי */
+        height: 100% !important;
+    }
+
+    .doll-overlay {
+        width: 140px !important; /* הבובה קטנה יותר בהתאמה */
+        bottom: -5px !important;
+        right: -5px !important;
+    }
+
+    .fact-card {
+        width: 40% !important; /* הטקסט תופס את השאר */
+        padding: 15px 10px !important;
+        overflow-y: auto; /* מאפשר גלילה בתוך הטקסט אם הוא ארוך */
+    }
+
+    .fact-card h2 {
+        font-size: 1.1rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    .fact-card p {
+        font-size: 0.8rem !important;
+        line-height: 1.3 !important;
+    }
+
     .btn {
         width: 100% !important;
-        font-size: 1.3rem !important;
-        padding: 18px 10px !important;
-        margin: 10px 0 !important;
-    }
-
-    /* התאמת הכותרת */
-    .sync-box h1 {
-        font-size: 2.2rem !important;
-    }
-
-    /* התאמת חלונית האישור הסופית */
-    .confirm-box {
-        width: 85% !important;
-        padding: 30px !important;
+        font-size: 1.1rem !important;
+        padding: 15px 5px !important;
     }
 }
