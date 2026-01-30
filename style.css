@@ -91,6 +91,7 @@ svg { height: 75vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
 
 .some-other-class {
     color: red;
+}
 
 
 #confirm-btn {
