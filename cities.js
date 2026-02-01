@@ -111,7 +111,7 @@ const missionControl = {
     "rehovot": { 
         name: "רחובות", 
         facts: ["עיר המדע", "מכון ויצמן", "הפקולטה לחקלאות", "בית הנשיא הראשון"], 
-        photos: [], x: 32, y: 40 
+        photos: [https://he.wikipedia.org/wiki/%D7%A8%D7%97%D7%95%D7%91%D7%95%D7%AA], x: 32, y: 40 
     },
     "lod": { 
         name: "לוד", 
@@ -326,6 +326,7 @@ const missionControl = {
         x: 44, y: 40 
     },
 };
+
 
 
 
