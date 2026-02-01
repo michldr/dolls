@@ -10,30 +10,28 @@
     <div class="bg-grid"></div>
     <div class="scan-line"></div>
     <div id="flash"></div>
-
+    
     <div id="sync-screen" class="hud-overlay">
         <div class="sync-box">
-            <h1>DOLL_SYNC // INITIALIZATION</h1>
-            <input type="text" id="user-name" placeholder="הכנס שד..." class="terminal-input">
+            <h1>בובות מקומיות</h1>
+            <input type="text" id="user-name" placeholder="הכנס שם..." class="terminal-input">
             
             <div class="upload-area">
                 <input type="file" id="doll-photo-input" accept="image/*" hidden>
-                <button class="btn" onclick="document.getElementById('doll-photo-input').click()">סרוק בובה (העלה תמונה שקופה)</button>
+                <button class="btn" onclick="document.getElementById('doll-photo-input').click()">צלם בובה (רקע ירוק מומלץ)</button>
                 <p id="file-status">סטטוס: ממתין לסריקה...</p>
             </div>
-
-            <button class="btn btn-pink" onclick="initializePortal()">התחל סנכרון</button>
+            <button class="btn btn-pink" onclick="initializePortal()">להתחיל</button>
         </div>
     </div>
-
+    
     <div id="main-interface" style="display: none;">
         <div class="hud-header">
             <h2 id="welcome-message">SYS_READY // </h2>
             <select id="destination" onchange="startTravel(this.value)">
-                <option value="">-- בחר מיקום --</option>
+                <option value="">-- בחר עיר --</option>
             </select>
         </div>
-
         <div id="map-viewport">
             <div id="map-zoom-container">
                 <svg viewBox="0 0 300 850" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +44,7 @@
             </div>
         </div>
     </div>
-
+    
     <div id="travel-report" class="modal">
         <div class="modal-container">
             <div class="selfie-view">
@@ -61,10 +59,23 @@
                 <hr style="border:1px solid var(--neon-cyan); margin:15px 0;">
                 <p id="city-fact"></p>
                 <button class="btn btn-pink" onclick="closeTravel()">חזור למפה</button>
+                <button class="btn" onclick="showConfirmDialog()">אשר בחירה</button>
             </div>
         </div>
     </div>
-
+    
+    <!-- NEW: Confirmation Dialog -->
+    <div id="confirm-dialog" class="modal">
+        <div class="confirm-box">
+            <h2>האם אתה בטוח?</h2>
+            <p style="margin: 30px 0; font-size: 1.1rem;">זאת העיר שלי?</p>
+            <div class="confirm-buttons">
+                <button class="btn btn-pink" onclick="confirmCitySelection()">כן, זאת העיר שלי</button>
+                <button class="btn" onclick="closeConfirmDialog()">לא</button>
+            </div>
+        </div>
+    </div>
+    
     <script src="cities.js"></script>
     <script src="script.js"></script>
 </body>
