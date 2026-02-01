@@ -126,7 +126,7 @@ const missionControl = {
     "givatayim": { 
         name: "גבעתיים", 
         facts: ["מצפה הכוכבים", "עיר על גבעות", "איכות חיים", "קירבה לת\"א"], 
-        photos: [], x: 31, y: 31 
+        photos: ["https://he.wikipedia.org/wiki/%D7%92%D7%91%D7%A2%D7%AA%D7%99%D7%99%D7%9D"], x: 31, y: 31 
     },
     "metula": { 
         name: "מטולה", 
@@ -326,6 +326,7 @@ const missionControl = {
         x: 44, y: 40 
     },
 };
+
 
 
 
