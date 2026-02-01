@@ -146,7 +146,7 @@ const missionControl = {
     "nahariya": { 
         name: "נהריה", 
         facts: ["הגעתון", "עיר הקיט", "ראש הנקרה", "חוף הים"], 
-        photos: [], x: 18, y: 15 
+        photos: ["https://upload.wikimedia.org/wikipedia/commons/b/b5/Areal_view_of_Nahariya.jpg"], x: 18, y: 15 
     },
     "carmiel": { 
         name: "כרמיאל", 
@@ -326,6 +326,7 @@ const missionControl = {
         x: 44, y: 40 
     },
 };
+
 
 
 
