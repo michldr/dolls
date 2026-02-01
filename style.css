@@ -41,16 +41,53 @@ gap: 20px; /* יוצר רווח קבוע ונקי בין כל חלק */
     text-align: center; font-size: 1.2rem; outline: none;
 }
 /* ממשק המפה */
-.hud-header { padding: 20px; text-align: center; border-bottom: 2px solid var(--neon-cyan); background: rgba(0,0,0,0.8); }
-#map-viewport { height: 88vh; display: flex; justify-content: center; align-items: center; }
+.hud-header { 
+    padding: 20px; 
+    text-align: center; 
+    border-bottom: 2px solid var(--neon-cyan); 
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#destination {
+    width: 85%;
+    max-width: 350px;
+    height: 50px;
+    background: var(--bg-black);
+    color: var(--neon-cyan);
+    border: 2px solid var(--neon-cyan);
+    font-family: 'Orbitron', 'Heebo', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--neon-cyan);
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+#map-viewport { 
+    height: 75vh; /* הקטנו מעט כדי שלא יתנגש ב-header המוגדל בטלפון */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
 #map-zoom-container { position: relative; transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1); }
-svg { height: 85vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
+
+svg { height: 70vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
+
 .israel-shape { fill: rgba(0,255,255,0.02); stroke: var(--neon-cyan); stroke-width: 1.5; }
+
 /* הבובה על המפה */
 #doll-container { 
     position: absolute; width: 60px; height: 60px; 
     transform: translate(-50%, -50%); transition: 2s ease-in-out; 
     z-index: 60; pointer-events: none;
+}
 }
 #map-doll-img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 8px var(--neon-cyan)); }
 /* סלפי ומודאל */
