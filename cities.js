@@ -1,4 +1,4 @@
-const missionControlCities = {
+const missionControl = {
     "jerusalem": { 
         name: "ירושלים", 
         facts: [
@@ -485,5 +485,22 @@ const missionControlCities = {
     },
 };
 
+/**
+ * לוגיקה לסידור רשימת הערים עבור ה-Select
+ */
+function getSortedCities() {
+    const mainCitiesKeys = ["jerusalem", "tel_aviv", "haifa", "beersheba"];
+    
+    // 1. ערים מרכזיות
+    const mainCities = mainCitiesKeys.map(key => ({ key, ...missionControl[key] }));
+    
+    // 2. שאר הערים ממוינות מצפון לדרום (לפי ערך Y קטן לגדול)
+    const otherCities = Object.keys(missionControl)
+        .filter(key => !mainCitiesKeys.includes(key))
+        .map(key => ({ key, ...missionControl[key] }))
+        .sort((a, b) => a.y - b.y);
+
+    return [...mainCities, ...otherCities];
+}
 
 
