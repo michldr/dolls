@@ -106,12 +106,12 @@ const missionControl = {
     "rishon_lezion": { 
         name: "ראשון לציון", 
         facts: ["דגל והמנון", "היקב הישן", "סופרלנד ויס פלאנט", "העיר הרביעית בגודלה"], 
-        photos: [:https://he.wikipedia.org/wiki/%D7%A7%D7%95%D7%91%D7%A5:Rishon_LeZion_Aerial_View.jpg:], x: 28, y: 38 
+        photos: ["https://he.wikipedia.org/wiki/%D7%A7%D7%95%D7%91%D7%A5:Rishon_LeZion_Aerial_View.jpg"], x: 28, y: 38 
     },
     "rehovot": { 
         name: "רחובות", 
         facts: ["עיר המדע", "מכון ויצמן", "הפקולטה לחקלאות", "בית הנשיא הראשון"], 
-        photos: [https://he.wikipedia.org/wiki/%D7%A8%D7%97%D7%95%D7%91%D7%95%D7%AA], x: 32, y: 40 
+        photos: ["https://he.wikipedia.org/wiki/%D7%A8%D7%97%D7%95%D7%91%D7%95%D7%AA"], x: 32, y: 40 
     },
     "lod": { 
         name: "לוד", 
@@ -121,7 +121,7 @@ const missionControl = {
     "jaffa": { 
         name: "יפו", 
         facts: ["נמל עתיק", "סלע אנדרומדה", "מגדל השעון", "שוק הפשפשים"], 
-        photos: [], x: 28, y: 31 
+        photos: ["https://he.wikipedia.org/wiki/%D7%99%D7%A4%D7%95"], x: 28, y: 31 
     },
     "givatayim": { 
         name: "גבעתיים", 
@@ -326,6 +326,7 @@ const missionControl = {
         x: 44, y: 40 
     },
 };
+
 
 
 
