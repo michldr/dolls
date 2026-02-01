@@ -106,7 +106,7 @@ const missionControl = {
     "rishon_lezion": { 
         name: "ראשון לציון", 
         facts: ["דגל והמנון", "היקב הישן", "סופרלנד ויס פלאנט", "העיר הרביעית בגודלה"], 
-        photos: [], x: 28, y: 38 
+        photos: [:https://he.wikipedia.org/wiki/%D7%A7%D7%95%D7%91%D7%A5:Rishon_LeZion_Aerial_View.jpg:], x: 28, y: 38 
     },
     "rehovot": { 
         name: "רחובות", 
@@ -326,5 +326,6 @@ const missionControl = {
         x: 44, y: 40 
     },
 };
+
 
 
