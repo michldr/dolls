@@ -131,7 +131,7 @@ const missionControl = {
     "metula": { 
         name: "מטולה", 
         facts: ["הנקודה הצפונית", "מרכז קנדה", "מפלי התנור", "גבול הלבנון"], 
-        photos: [], x: 40, y: 8 
+        photos: ["https://he.wikipedia.org/wiki/%D7%A7%D7%95%D7%91%D7%A5:Metula_and_Hermon.JPG"], x: 40, y: 8 
     },
     "mitzpe_ramon": { 
         name: "מצפה רמון", 
@@ -326,6 +326,7 @@ const missionControl = {
         x: 44, y: 40 
     },
 };
+
 
 
 
