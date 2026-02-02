@@ -281,51 +281,26 @@ function confirmCitySelection() {
         time: uploadData.time
     });
 
-    // Warn if image is very large
-    if (uploadData.image.length > 5 * 1024 * 1024) { // 5MB
-        console.warn("⚠️ Large image detected:", imageSizeMB, "MB - this may take a while on mobile");
-    }
+    // Simplified upload - matching working bigmap implementation
+    database.ref('uploads').push(uploadData).then(() => {
+        console.log("✓ Firebase upload successful!");
+        statusDiv.innerText = 'העלאה הצליחה! עובר למפה...';
 
-    // Create a timeout promise (30 seconds)
-    const timeoutPromise = new Promise((_, reject) => {
+        // Redirect after a short delay
         setTimeout(() => {
-            reject(new Error('Upload timeout - האינטרנט איטי מדי או התמונה גדולה מדי'));
-        }, 30000);
+            console.log("Redirecting to map.html...");
+            window.location.href = 'map.html';
+        }, 800);
+    }).catch((error) => {
+        console.error("✗ Firebase upload error:", error);
+        console.error("Error code:", error.code);
+        console.error("Error message:", error.message);
+
+        // Remove status div
+        if (document.body.contains(statusDiv)) {
+            document.body.removeChild(statusDiv);
+        }
+
+        alert("שגיאה בשמירת הנתונים: " + (error.message || "Unknown error"));
     });
-
-    // Race between upload and timeout
-    Promise.race([
-        database.ref('uploads').push(uploadData),
-        timeoutPromise
-    ])
-        .then(() => {
-            console.log("✓ Firebase upload successful!");
-            statusDiv.innerText = 'העלאה הצליחה! עובר למפה...';
-
-            // Redirect after a short delay to ensure upload completes
-            setTimeout(() => {
-                console.log("Redirecting to map.html...");
-                window.location.href = 'map.html';
-            }, 500);
-        })
-        .catch((error) => {
-            console.error("✗ Firebase upload error:", error);
-            console.error("Error code:", error.code);
-            console.error("Error message:", error.message);
-
-            // Remove status div
-            if (document.body.contains(statusDiv)) {
-                document.body.removeChild(statusDiv);
-            }
-
-            // Show user-friendly error message
-            let errorMsg = "שגיאה בשמירת הנתונים";
-            if (error.message && error.message.includes('timeout')) {
-                errorMsg = "ההעלאה לוקחת יותר מדי זמן.\nנסה עם תמונה קטנה יותר או חיבור אינטרנט טוב יותר.";
-            } else if (error.message) {
-                errorMsg += ": " + error.message;
-            }
-
-            alert(errorMsg);
-        });
 }
