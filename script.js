@@ -116,26 +116,35 @@ function startTravel(key) {
 
 function showTravelSelfie(key) {
     const city = missionControl[key];
+    if (!city) return; // הגנה למקרה שהעיר לא נמצאה
+    
     clearInterval(slideInterval);
 
-    const photos = (city.photos && city.photos.length > 0) ? city.photos : ["img/default-city.jpg"];
+    // התיקון הקריטי: משתמשים ב-images במקום photos
+    const currentImages = (city.images && city.images.length > 0) ? city.images : ["img/default-city.jpg"];
+    
     currentPhotoIndex = 0;
-    document.getElementById('city-bg').src = photos[0];
+    const bgElement = document.getElementById('city-bg');
+    
+    // הצגת התמונה הראשונה מיד
+    bgElement.src = currentImages[0];
 
+    // עיבוד העובדות (Facts) לרשימה
     const factsHTML = Array.isArray(city.facts) ? 
         `<ul>${city.facts.map(f => `<li>${f}</li>`).join('')}</ul>` : 
-        (city.fact || "אין מידע זמין.");
+        `<ul><li>${city.fact || "אין מידע זמין."}</li></ul>`;
 
     document.getElementById('city-fact').innerHTML = factsHTML;
     document.getElementById('selfie-doll-img').src = dollPhotoURL;
     document.getElementById('city-name').innerText = city.name;
     document.getElementById('travel-report').style.display = 'flex';
 
-    if (photos.length > 1) {
+    // הפעלת מצגת אם יש יותר מתמונה אחת (כמו בירושלים)
+    if (currentImages.length > 1) {
         slideInterval = setInterval(() => {
-            currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
-            document.getElementById('city-bg').src = photos[currentPhotoIndex];
-        }, 3000);
+            currentPhotoIndex = (currentPhotoIndex + 1) % currentImages.length;
+            bgElement.src = currentImages[currentPhotoIndex];
+        }, 3000); // החלפת תמונה כל 3 שניות
     }
 }
 
