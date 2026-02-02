@@ -119,6 +119,7 @@ function startTravel(key) {
     currentCityKey = key;
     const target = missionControl[key];
     const dollContainer = document.getElementById('doll-container');
+    const dollImg = document.getElementById('map-doll-img');
     const zoomContainer = document.getElementById('map-zoom-container');
 
     // Use correct map coordinates for positioning - matches map.html cityCoords
@@ -157,15 +158,27 @@ function startTravel(key) {
         "עמק יזרעאל": { x: 52.0, y: 26.0 }
     };
 
+    const jerusalemCoords = { x: 52.2, y: 44.7 };
     const correctCoords = mapCoords[target.name] || { x: target.x, y: target.y };
-    dollContainer.style.left = correctCoords.x + '%';
-    dollContainer.style.top = correctCoords.y + '%';
 
+    // Step 1: Position doll at Jerusalem and make it visible
+    dollContainer.style.left = jerusalemCoords.x + '%';
+    dollContainer.style.top = jerusalemCoords.y + '%';
+    dollImg.style.display = 'block';
+
+    // Step 2: Travel from Jerusalem to destination city (2 seconds)
+    setTimeout(() => {
+        dollContainer.style.left = correctCoords.x + '%';
+        dollContainer.style.top = correctCoords.y + '%';
+    }, 100);
+
+    // Step 3: After travel, zoom into the destination
     setTimeout(() => {
         const zX = (50 - correctCoords.x) * 4.5;
         const zY = (40 - correctCoords.y) * 4.5;
         zoomContainer.style.transform = `scale(5) translate(${zX}%, ${zY}%)`;
 
+        // Step 4: Flash and show selfie
         setTimeout(() => {
             document.getElementById('flash').style.opacity = '1';
             setTimeout(() => {
@@ -173,7 +186,7 @@ function startTravel(key) {
                 showTravelSelfie(key);
             }, 100);
         }, 1600);
-    }, 1000);
+    }, 2100);
 }
 
 function showTravelSelfie(key) {
@@ -215,6 +228,7 @@ function closeTravel() {
     document.getElementById('travel-report').style.display = 'none';
     document.getElementById('map-zoom-container').style.transform = 'scale(1) translate(0,0)';
     document.getElementById('destination').value = "";
+    document.getElementById('map-doll-img').style.display = 'none';
 }
 
 function showConfirmDialog() {
