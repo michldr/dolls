@@ -34,6 +34,7 @@ body, html {
 }
 
 .sync-box {
+    position: relative; /* חובה עבור הבובות */
     width: 700px; 
     min-height: 500px; 
     padding: 60px; 
@@ -67,10 +68,6 @@ body, html {
     outline: none;
 }
 
-.terminal-input::placeholder {
-    font-size: 1.4rem;
-}
-
 /* ממשק המפה */
 .hud-header { 
     padding: 20px; 
@@ -95,8 +92,6 @@ body, html {
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 0 15px var(--neon-cyan);
-    appearance: none;
-    -webkit-appearance: none;
     cursor: pointer;
 }
 
@@ -107,34 +102,13 @@ body, html {
     align-items: center; 
 }
 
-#map-zoom-container { position: relative; transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1); }
-
 svg { height: 70vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
-
 .israel-shape { fill: rgba(0,255,255,0.02); stroke: var(--neon-cyan); stroke-width: 1.5; }
-
-/* הבובה על המפה */
-#doll-container { 
-    position: absolute; width: 60px; height: 60px; 
-    transform: translate(-50%, -50%); transition: 2s ease-in-out; 
-    z-index: 60; pointer-events: none;
-}
-
-#map-doll-img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 8px var(--neon-cyan)); }
 
 /* סלפי ומודאל */
 .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9000; display: none; align-items: center; justify-content: center; }
-
 .modal-container { display: flex; border: 1px solid var(--neon-cyan); background: var(--bg-black); }
-
 .selfie-view { position: relative; width: 450px; height: 550px; overflow: hidden; background: #000; }
-
-#city-bg { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    transition: opacity 0.5s ease-in-out; 
-}
 
 .doll-overlay { 
     position: absolute; bottom: -20px; right: -20px; 
@@ -142,14 +116,7 @@ svg { height: 70vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
     z-index: 10;
 }
 
-#selfie-doll-img { 
-    width: 100%; 
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7)); 
-}
-
-.fact-card { width: 260px; padding: 25px; background: var(--glass); text-align: right; border-right: 1px solid var(--neon-cyan); }
-
-/* כפתורים משופרים */
+/* כפתורים */
 .btn { 
     background: transparent; 
     border: 2px solid var(--neon-cyan); 
@@ -164,14 +131,10 @@ svg { height: 70vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
 }
 
 .btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 20px var(--neon-cyan); }
-
 .btn-pink { border-color: var(--neon-pink); color: var(--neon-pink); }
-
 .btn-pink:hover { background: var(--neon-pink); color: #000; box-shadow: 0 0 20px var(--neon-pink); }
 
-#flash { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; opacity: 0; z-index: 9999; pointer-events: none; transition: 0.1s; }
-
-/* הודעת אישור (Confirm) */
+/* הודעת אישור */
 .confirm-box {
     width: 550px; 
     padding: 50px; 
@@ -180,20 +143,6 @@ svg { height: 70vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
     background: var(--glass); 
     box-shadow: 0 0 50px var(--neon-pink);
     animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.confirm-box h2 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: var(--neon-pink);
-    text-shadow: 0 0 20px var(--neon-pink);
-}
-
-.confirm-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 30px;
 }
 
 .confirm-buttons .btn {
@@ -205,32 +154,25 @@ svg { height: 70vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
 @keyframes pulse-glow {
     0%, 100% { box-shadow: 0 0 50px var(--neon-pink); }
     50% { box-shadow: 0 0 80px var(--neon-pink), 0 0 100px rgba(255, 0, 255, 0.5); }
-
-}
-/* --- הוספת בובות בפינות (doll1 + doll2) --- */
-
-/* --- הוספת בובות בפינות (גירסה מוגדלת ומתוקנת) --- */
-
-.sync-box {
-    position: relative; /* העוגן של הבובות */
 }
 
+/* --- הבובות בפינות --- */
 .corner-doll {
-    position: absolute;
-    width: 280px;       /* הגדלתי מ-150 ל-280 כדי שיהיו בולטות */
+    position: absolute; 
+    width: 280px;       
     height: auto;
-    top: -160px;        /* משכתי אותן יותר למעלה בגלל הגודל */
-    z-index: 5001;
+    top: -160px;        
+    z-index: 5001;      
     filter: drop-shadow(0 0 15px var(--neon-cyan));
-    pointer-events: none;
+    pointer-events: none; 
 }
 
 .doll-left {
-    left: -100px;       /* מוציא את הבובה שמאלה מהמסגרת */
+    left: -120px;       
     transform: rotate(-15deg);
 }
 
 .doll-right {
-    right: -100px;      /* מוציא את הבובה ימינה מהמסגרת */
+    right: -120px;      
     transform: rotate(15deg);
 }
