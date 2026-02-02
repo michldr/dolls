@@ -81,23 +81,21 @@
     }
     /* 1. Fix the main container to handle mobile bars */
     #main-interface {
+        /* Force the app to match the exact screen height */
         height: 100vh;
-        height: 100dvh; /* Dynamic Viewport Height - fixes mobile scroll */
+        height: 100dvh; /* Critical for iPhone address bars */
         width: 100vw;
         display: flex;
         flex-direction: column;
-        overflow: hidden;
+        overflow: hidden; /* STRICTLY forbids scrolling */
+        position: fixed; /* Locks the page in place */
     }
     /* 2. The Header - fixed height */
     .hud-header { 
-        padding: 10px 15px; /* Reduced padding to save vertical space */
-        text-align: center; 
-        border-bottom: 2px solid var(--neon-cyan); 
-        background: var(--glass);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px; /* Tighter gap */
+        flex: 0 0 auto; /* Do not grow or shrink */
+        height: 120px; 
+        padding: 10px;
+        box-sizing: border-box;
         z-index: 100;
     }
     #welcome-message {
@@ -135,24 +133,24 @@
     }
     /* 2. Give the map the remaining space */
     #map-viewport {
-        flex: 1; 
+        flex: 1; /* Take whatever space is left */
         width: 100%;
+        /* No height setting here, flex handles it */
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        padding: 10px;
-        box-sizing: border-box;
-}
+        padding: 0;
+        position: relative;
+    }
     /* 3. The Container - Limits the size */
     #map-zoom-container {
         position: relative;
-        /* Important: This lets the map decide its own size based on the screen limits */
-        height: 95%;
+        /* Force the map to be 10% shorter than the available space so it never touches edges */
+        height: 90%; 
         width: auto;
         
-        /* Ensure it preserves the 300x850 ratio */
-        aspect-ratio: 300 / 850;
+        aspect-ratio: 300 / 850; 
         
         display: flex;
         justify-content: center;
@@ -160,7 +158,6 @@
         transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
         margin: auto;
     }
-
     /* 4. The SVG - No stretching allowed */
     svg {
         height: 100%;
@@ -336,6 +333,9 @@
 
     /* Responsive design for mobile and tablet */
     @media (max-width: 768px) {
+        .hud-header {
+                height: 100px; /* Smaller header on mobile */
+            }
         .sync-box {
             width: 90%;
             padding: 30px 20px;
@@ -387,7 +387,7 @@
     /* Ensure this matches the logic we set earlier */
         #map-zoom-container {
             height: 90%; 
-            max-height: 90%;/* Safety buffer */
+            max-height: 85%;/* Safety buffer */
         }
 
         svg {
