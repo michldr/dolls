@@ -118,6 +118,14 @@ function initializePortal() {
         dot.style.top = cityObj.y + '%';
         markersLayer.appendChild(dot);
 
+        // הוספת שם העיר על המפה
+        const label = document.createElement('div');
+        label.className = 'city-label';
+        label.innerText = cityObj.name;
+        label.style.left = cityObj.x + '%';
+        label.style.top = cityObj.y + '%';
+        markersLayer.appendChild(label);
+
         // הוספת אופציה לתפריט (הסדר כאן נקבע ע"י המערך הממוין)
         const opt = document.createElement('option');
         opt.value = cityObj.key;

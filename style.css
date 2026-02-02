@@ -113,6 +113,31 @@ svg { height: 92vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
 
 .israel-shape { fill: rgba(0,255,255,0.02); stroke: var(--neon-cyan); stroke-width: 1.5; }
 
+/* City markers and labels */
+.city-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px var(--neon-cyan);
+    z-index: 50;
+}
+
+.city-label {
+    position: absolute;
+    transform: translate(-50%, 5px);
+    font-size: 8px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 50;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 300;
+}
+
 /* הבובה על המפה */
 #doll-container { 
     position: absolute; width: 60px; height: 60px; 
@@ -274,6 +299,15 @@ svg { height: 92vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
 
     svg {
         height: 85vh;
+    }
+
+    .city-label {
+        font-size: 6px;
+    }
+
+    .city-dot {
+        width: 3px;
+        height: 3px;
     }
 
     .modal-container {
