@@ -147,23 +147,30 @@
 
     #map-zoom-container {
         position: relative;
-        /* This forces the container to be 3.5x taller than it is wide */
-        height: 100%; 
+        /* This is the magic: it will be 90% of the height OR 90% of the width, 
+        whichever is smaller, ensuring it never overflows */
+        height: 90vh; 
+        width: auto;
+        max-width: 90vw; 
+        
+        /* Keeps the correct Israel proportions */
         aspect-ratio: 300 / 850; 
+        
         display: flex;
         justify-content: center;
         align-items: center;
         transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
-        /* Prevents the 'cucumber' stretch */
-        max-width: 100%; 
+        
+        /* Center it horizontally */
+        margin: 0 auto; 
     }
 
     svg {
         height: 100%;
         width: 100%;
-        /* Ensures the path fits perfectly inside the pillar */
         display: block;
-        filter: drop-shadow(0 0 15px var(--neon-cyan));
+        /* Prevents the neon glow from being clipped at the edges */
+        overflow: visible; 
     }
     .israel-shape { 
         fill: rgba(0, 255, 255, 0.05); /* Very subtle inner glow */
