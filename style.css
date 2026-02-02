@@ -53,6 +53,7 @@ body, html {
 }
 
 .sync-box {
+    position: relative; /* IMPORTANT: This makes sure dolls stay attached to the box */
     width: 700px; padding: 60px; border: 2px solid var(--neon-cyan);
     display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;
     background: var(--glass); box-shadow: 0 0 40px var(--neon-cyan);
@@ -260,3 +261,30 @@ svg {
 }
 
 svg { overflow: visible !important; }
+/* --- תוספת: בובות דקורטיביות לפינות --- */
+.corner-doll {
+    position: absolute; 
+    width: 280px;        
+    height: auto;
+    top: -160px;        
+    z-index: 5001;      
+    filter: drop-shadow(0 0 15px var(--neon-cyan));
+    pointer-events: none; 
+}
+
+.doll-left {
+    left: -120px;        
+    transform: rotate(-15deg);
+}
+
+.doll-right {
+    right: -120px;       
+    transform: rotate(15deg);
+}
+
+/* התאמה למובייל - הסתרת בובות הקישוט במסכים קטנים כדי לא להסתיר את המסך */
+@media (max-width: 768px) {
+    .corner-doll {
+        display: none;
+    }
+}
