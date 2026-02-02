@@ -208,6 +208,10 @@ function closeConfirmDialog() {
 function confirmCitySelection() {
     const city = missionControl[currentCityKey];
 
+    console.log("Confirming city:", city.name);
+    console.log("User:", userName);
+    console.log("Photo URL length:", dollPhotoURL ? dollPhotoURL.length : 0);
+
     // Upload to Firebase
     database.ref('uploads').push({
         city: city.name,
@@ -215,9 +219,11 @@ function confirmCitySelection() {
         userName: userName,
         time: Date.now()
     }).then(() => {
+        console.log("Upload successful, redirecting...");
         // Redirect to map after successful upload
         window.location.href = 'map.html';
     }).catch((error) => {
+        console.error("Upload error:", error);
         alert("שגיאה בשמירת הנתונים: " + error.message);
     });
 }
