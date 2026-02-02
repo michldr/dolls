@@ -88,6 +88,14 @@ function initializePortal() {
     document.getElementById('welcome-message').innerText = `שלום ${userName}, באיזו עיר אתם גרים?`;
     document.getElementById('map-doll-img').src = dollPhotoURL;
 
+    // Position doll at Jerusalem and make it visible immediately
+    const dollContainer = document.getElementById('doll-container');
+    const dollImg = document.getElementById('map-doll-img');
+    const jerusalemCoords = { x: 52.2, y: 44.7 };
+    dollContainer.style.left = jerusalemCoords.x + '%';
+    dollContainer.style.top = jerusalemCoords.y + '%';
+    dollImg.style.display = 'block';
+
     const markersLayer = document.getElementById('markers-layer');
     const select = document.getElementById('destination');
 
