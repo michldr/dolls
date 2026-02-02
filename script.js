@@ -4,6 +4,11 @@ let currentPhotoIndex = 0;
 let currentCityKey = "";
 let slideInterval;
 
+// Initialize Firebase
+const firebaseConfig = { databaseURL: "https://bubot-mekomiot-default-rtdb.firebaseio.com" };
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
 // --- 1. GREEN SCREEN LOGIC ---
 document.addEventListener('DOMContentLoaded', function() {
     const dollInput = document.getElementById('doll-photo-input');
@@ -96,12 +101,49 @@ function startTravel(key) {
     const dollContainer = document.getElementById('doll-container');
     const zoomContainer = document.getElementById('map-zoom-container');
 
-    dollContainer.style.left = target.x + '%';
-    dollContainer.style.top = target.y + '%';
+    // Use correct map coordinates for positioning - matches map.html cityCoords
+    const mapCoords = {
+        "ירושלים": { x: 52.2, y: 44.7 },
+        "תל אביב": { x: 44.0, y: 38.3 },
+        "חיפה": { x: 48.1, y: 23.2 },
+        "באר שבע": { x: 44.1, y: 55.9 },
+        "צפת": { x: 55.5, y: 18.5 },
+        "טבריה": { x: 56.1, y: 22.1 },
+        "נהריה": { x: 49.5, y: 18.0 },
+        "עכו": { x: 49.0, y: 20.0 },
+        "נתניה": { x: 45.4, y: 33.1 },
+        "כפר סבא": { x: 47.5, y: 35.8 },
+        "רעננה": { x: 46.2, y: 35.5 },
+        "הרצליה": { x: 45.0, y: 36.5 },
+        "חדרה": { x: 46.5, y: 31.0 },
+        "פתח תקווה": { x: 47.2, y: 38.0 },
+        "רמת גן": { x: 45.2, y: 37.8 },
+        "גבעתיים": { x: 45.1, y: 38.5 },
+        "בני ברק": { x: 45.8, y: 37.9 },
+        "חולון": { x: 44.5, y: 39.8 },
+        "בת ים": { x: 43.8, y: 39.5 },
+        "ראשון לציון": { x: 44.8, y: 41.2 },
+        "נס ציונה": { x: 44.9, y: 42.5 },
+        "רחובות": { x: 45.1, y: 43.8 },
+        "מודיעין": { x: 49.5, y: 41.5 },
+        "אשדוד": { x: 41.6, y: 44.2 },
+        "אשקלון": { x: 39.5, y: 47.5 },
+        "אילת": { x: 47.1, y: 91.4 },
+        "רמת הגולן": { x: 56.5, y: 15.0 },
+        "ים המלח": { x: 57.0, y: 50.0 },
+        "הגליל": { x: 53.0, y: 17.0 },
+        "הערבה": { x: 50.0, y: 75.0 },
+        "עוטף עזה": { x: 37.0, y: 50.0 },
+        "עמק יזרעאל": { x: 52.0, y: 26.0 }
+    };
+
+    const correctCoords = mapCoords[target.name] || { x: target.x, y: target.y };
+    dollContainer.style.left = correctCoords.x + '%';
+    dollContainer.style.top = correctCoords.y + '%';
 
     setTimeout(() => {
-        const zX = (50 - target.x) * 4.5;
-        const zY = (40 - target.y) * 4.5;
+        const zX = (50 - correctCoords.x) * 4.5;
+        const zY = (40 - correctCoords.y) * 4.5;
         zoomContainer.style.transform = `scale(5) translate(${zX}%, ${zY}%)`;
 
         setTimeout(() => {
@@ -164,7 +206,18 @@ function closeConfirmDialog() {
 }
 
 function confirmCitySelection() {
-    alert("הבחירה נשמרה! תודה שהשתתפת בפרויקט בובות מקומיות.");
-    closeConfirmDialog();
-    closeTravel();
+    const city = missionControl[currentCityKey];
+
+    // Upload to Firebase
+    database.ref('uploads').push({
+        city: city.name,
+        image: dollPhotoURL,
+        userName: userName,
+        time: Date.now()
+    }).then(() => {
+        // Redirect to map after successful upload
+        window.location.href = 'map.html';
+    }).catch((error) => {
+        alert("שגיאה בשמירת הנתונים: " + error.message);
+    });
 }
