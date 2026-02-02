@@ -6,17 +6,36 @@
 }
 
 body, html {
-    margin: 0; padding: 0; width: 100%; height: 100%;
-    background: var(--bg-black); color: white;
-    font-family: 'Orbitron', 'Heebo', sans-serif; overflow: hidden;
-    direction: rtl;
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    height: 100%;
+    height: 100dvh; /* גובה דינמי מדויק */
+    background: var(--bg-black); 
+    color: white;
+    font-family: 'Orbitron', 'Heebo', sans-serif; 
+    
+    /* --- הגדרות הנעילה ההרמטית --- */
+    overflow: hidden;           /* מבטל פסי גלילה */
+    position: fixed;            /* נועל את הדף למסך */
+    top: 0; left: 0; right: 0; bottom: 0;
+    
+    /* מונע "מתיחה" של הדף למעלה/למטה באייפון */
+    overscroll-behavior: none;  
+    
+    /* מונע גלילה במגע (אצבע) */
+    touch-action: none; 
 }
 
-/* אפקטים של רקע */
+/* --- רקעים ואפקטים --- */
 .bg-grid {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background-image: linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
     background-size: 40px 40px; z-index: 1; pointer-events: none;
+    /* --- התיקון למניעת הכתמה --- */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
 }
 
 .scan-line {
@@ -27,139 +46,225 @@ body, html {
 
 @keyframes scanMove { 0% { top: -5%; } 100% { top: 105%; } }
 
-/* מסך סנכרון (מסך פתיחה) */
+/* --- מסך פתיחה --- */
 .hud-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.95); z-index: 5000; display: flex; align-items: center; justify-content: center;
 }
 
 .sync-box {
-    position: relative; /* חובה עבור הבובות */
-    width: 700px; 
-    min-height: 500px; 
-    padding: 60px; 
-    border: 2px solid var(--neon-cyan);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; 
-    text-align: center; 
-    background: var(--glass); 
-    box-shadow: 0 0 40px var(--neon-cyan);
+    position: relative; /* IMPORTANT: This makes sure dolls stay attached to the box */
+    width: 700px; padding: 60px; border: 2px solid var(--neon-cyan);
+    display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;
+    background: var(--glass); box-shadow: 0 0 40px var(--neon-cyan);
 }
 
-.sync-box h1 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    color: var(--neon-cyan);
-    text-shadow: 0 0 15px var(--neon-cyan);
+.sync-box h1 { font-size: 2.8rem; margin-bottom: 10px; color: var(--neon-cyan); text-shadow: 0 0 15px var(--neon-cyan); }
+.terminal-input { width: 80%; background: transparent; border: 1px solid var(--neon-pink); color: var(--neon-pink); padding: 18px; margin: 25px 0; font-family: 'Share Tech Mono'; text-align: center; font-size: 1.8rem; outline: none; }
+.terminal-input::placeholder { font-size: 1.4rem; }
+
+/* --- ממשק ראשי --- */
+#main-interface {
+    height: 100dvh; width: 100vw;
+    display: flex; flex-direction: column;
+    overflow: hidden; position: fixed;
 }
 
-.terminal-input {
-    width: 80%;
-    background: transparent;
-    border: 1px solid var(--neon-pink);
-    color: var(--neon-pink);
-    padding: 18px;
-    margin: 25px 0;
-    font-family: 'Share Tech Mono';
-    text-align: center;
-    font-size: 1.8rem;
-    outline: none;
-}
-
-/* ממשק המפה */
 .hud-header { 
-    padding: 20px; 
-    text-align: center; 
-    border-bottom: 2px solid var(--neon-cyan); 
-    background: rgba(0,0,0,0.8);
+    flex: 0 0 auto; 
+    height: 120px; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    z-index: 100;
+    
+    /* שורות המירכוז החדשות */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    align-items: center; /* ממרכז את האלמנטים אופקית */
+    justify-content: center; /* ממרכז אותם אנכית */
+    text-align: center; /* מוודא שהטקסט עצמו במרכז */
 }
 
-#destination {
-    width: 85%;
-    max-width: 350px;
-    height: 50px;
-    background: var(--bg-black);
-    color: var(--neon-cyan);
-    border: 2px solid var(--neon-cyan);
-    font-family: 'Orbitron', 'Heebo', sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 0 15px var(--neon-cyan);
-    cursor: pointer;
+#welcome-message { margin: 5px 0; font-size: 1.2rem; color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
+.control-panel { display: flex; align-items: center; width: 100%; justify-content: center; margin-top: 5px; }
+#destination { width: 250px; height: 45px; background: rgba(0, 0, 0, 0.7); color: var(--neon-cyan); border: 1px solid var(--neon-cyan); font-family: 'Orbitron', 'Heebo', sans-serif; font-size: 1.1rem; text-align: center; border-radius: 5px; cursor: pointer; box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
+
+/* --- המפה והזום --- */
+#map-viewport {
+    flex: 1; width: 100%;
+    display: flex; justify-content: center; align-items: center;
+    overflow: hidden; padding: 10px; position: relative;
 }
 
-#map-viewport { 
-    height: 75vh; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+#map-zoom-container {
+    position: relative;
+    /* הגדרות למחשב - גובה מקסימלי */
+    height: 98%; 
+    aspect-ratio: 300 / 850; 
+    width: auto; 
+    
+    display: flex; justify-content: center; align-items: center;
+    transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: auto;
+    /* --- התיקון למפה --- */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    
+    /* בטיחות */
+    min-width: 50px;
 }
 
-svg { height: 70vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
-.israel-shape { fill: rgba(0,255,255,0.02); stroke: var(--neon-cyan); stroke-width: 1.5; }
+/* ה-SVG תופס 100% מהמיכל שלו */
+svg {
+    height: 100%; width: 100%;
+    display: block; overflow: visible;
+    filter: drop-shadow(0 0 15px var(--neon-cyan));
+}
 
-/* סלפי ומודאל */
+.israel-shape { 
+    fill: rgba(0, 255, 255, 0.05); 
+    stroke: var(--neon-cyan); stroke-width: 2; 
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 5px var(--neon-cyan)); 
+}
+
+/* --- אלמנטים על המפה --- */
+.city-dot {
+    position: absolute; width: 4px; height: 4px;
+    background: var(--neon-cyan); border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px var(--neon-cyan); z-index: 50;
+}
+
+.city-label {
+    position: absolute; transform: translate(-50%, 5px);
+    font-size: 8px; color: var(--neon-cyan); text-shadow: 0 0 5px var(--neon-cyan);
+    white-space: nowrap; pointer-events: none; z-index: 50;
+    font-family: 'Heebo', sans-serif; font-weight: 300;
+}
+
+/* הבובה - גודל יחסי באחוזים */
+#doll-container { 
+    position: absolute; 
+    width: 12%; /* גודל דינמי */
+    height: auto; aspect-ratio: 1 / 1;
+/* שימוש ב-GPU בלבד */
+    transform: translate(-50%, -50%) translate3d(0,0,0);
+    -webkit-transform: translate(-50%, -50%) translate3d(0,0,0);
+    
+    z-index: 60; pointer-events: none;
+    
+    /* אנימציה ליניארית פשוטה שלא מכבידה על המעבד */
+    transition: left 2s linear, top 2s linear;
+    will-change: left, top;}
+
+#map-doll-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    
+/* ביטול מוחלט של כל אפקט צל/זוהר בזמן תנועה */
+    filter: none !important;
+    -webkit-filter: none !important;
+    box-shadow: none !important;
+    
+    display: block; 
+}
+/* --- פופ-אפ וכפתורים --- */
 .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9000; display: none; align-items: center; justify-content: center; }
 .modal-container { display: flex; border: 1px solid var(--neon-cyan); background: var(--bg-black); }
 .selfie-view { position: relative; width: 450px; height: 550px; overflow: hidden; background: #000; }
-
-.doll-overlay { 
-    position: absolute; bottom: -20px; right: -20px; 
-    width: 280px; transform: rotate(-5deg); 
-    z-index: 10;
-}
-
-/* כפתורים */
-.btn { 
-    background: transparent; 
-    border: 2px solid var(--neon-cyan); 
-    color: var(--neon-cyan); 
-    padding: 16px 35px; 
-    cursor: pointer; 
-    font-family: 'Orbitron'; 
-    margin: 10px; 
-    font-weight: bold; 
-    font-size: 1.2rem; 
-    transition: 0.3s; 
-}
-
+#city-bg { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.5s ease-in-out; }
+.doll-overlay { position: absolute; bottom: -20px; right: -20px; width: 280px; transform: rotate(-5deg); z-index: 10; }
+#selfie-doll-img { width: 100%; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7)); }
+.fact-card { width: 260px; padding: 25px; background: var(--glass); text-align: right; border-right: 1px solid var(--neon-cyan); }
+.btn { background: transparent; border: 2px solid var(--neon-cyan); color: var(--neon-cyan); padding: 16px 35px; cursor: pointer; font-family: 'Orbitron'; margin: 10px; font-weight: bold; font-size: 1.2rem; transition: 0.3s; }
 .btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 20px var(--neon-cyan); }
 .btn-pink { border-color: var(--neon-pink); color: var(--neon-pink); }
 .btn-pink:hover { background: var(--neon-pink); color: #000; box-shadow: 0 0 20px var(--neon-pink); }
+#flash { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; opacity: 0; z-index: 9999; pointer-events: none; transition: 0.1s; }
 
 /* הודעת אישור */
-.confirm-box {
-    width: 550px; 
-    padding: 50px; 
-    border: 2px solid var(--neon-pink);
-    text-align: center; 
-    background: var(--glass); 
-    box-shadow: 0 0 50px var(--neon-pink);
-    animation: pulse-glow 2s ease-in-out infinite;
+.confirm-box { width: 550px; padding: 50px; border: 2px solid var(--neon-pink); text-align: center; background: var(--glass); box-shadow: 0 0 50px var(--neon-pink); animation: pulse-glow 2s ease-in-out infinite; }
+.confirm-box h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--neon-pink); text-shadow: 0 0 20px var(--neon-pink); }
+.confirm-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.confirm-buttons .btn { width: 100%; font-size: 1.3rem; padding: 18px; }
+@keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 50px var(--neon-pink); } 50% { box-shadow: 0 0 80px var(--neon-pink), 0 0 100px rgba(255, 0, 255, 0.5); } }
+
+/* --- התאמה למובייל (Mobile Fix) - שלב 1 --- */
+@media (max-width: 768px) {
+    
+    /* 1. כותרת גמישה - נותן לה "לנשום" בלי להסתיר */
+    .hud-header { 
+        height: auto; 
+        min-height: 100px; 
+        flex: 0 0 auto;
+        padding-bottom: 10px;
+    }
+
+    /* 2. תיקון המפה החתוכה */
+    #map-zoom-container {
+        /* זה התיקון: גובה של 65% מהמסך משאיר בדיוק מקום לכותרת ולשוליים */
+        height: 65vh;  
+        
+        width: auto;   
+        max-width: 95vw; 
+        aspect-ratio: 300 / 850;
+        margin: 0 auto;
+    }
+
+    /* 3. הקטנת הבובה בנייד */
+    #doll-container {
+        width: 15%; 
+    }
+
+    /* 4. התאמות כלליות למסכים קטנים */
+    .sync-box { width: 90%; padding: 30px 20px; min-height: auto; }
+    .sync-box h1 { font-size: 2rem; }
+    .terminal-input { width: 90%; font-size: 1.4rem; padding: 12px; }
+    
+    .control-panel { flex-direction: row; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    #destination { width: 180px; height: 40px; font-size: 0.9rem; }
+    
+    .city-label { font-size: 7px; }
+    .city-dot { width: 3px; height: 3px; }
+    
+    .modal-container { flex-direction: column; width: 95%; max-height: 80vh; overflow-y: auto; }
+/* בתוך @media (max-width: 768px) */
+    
+    .selfie-view { 
+        width: 100%; 
+        height: 250px; 
+        
+        /* --- התיקון הקריטי --- */
+        flex-shrink: 0;  /* אוסר על התמונה להתכווץ גם אם יש הרבה טקסט */
+        flex-grow: 0;    /* שומר על גובה קבוע */
+        display: block;  /* מוודא שזה תופס מקום */
+        position: relative;
+    }    
+    .confirm-box { width: 90%; padding: 30px 20px; }
+    .confirm-box h2 { font-size: 1.8rem; }
 }
 
-.confirm-buttons .btn {
-    width: 100%;
-    font-size: 1.3rem;
-    padding: 18px;
+/* --- תיקוני בטיחות סופיים --- */
+#map-zoom-container {
+    min-width: 50px; /* מונע קריסה, אך לא מגביל בנייד */
 }
 
-@keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 50px var(--neon-pink); }
-    50% { box-shadow: 0 0 80px var(--neon-pink), 0 0 100px rgba(255, 0, 255, 0.5); }
+/* וידוא שהמפה הנאונית תמיד מוצגת */
+.israel-shape {
+    fill: rgba(0, 255, 255, 0.05) !important;
+    stroke: #00ffff !important;
+    stroke-width: 2px !important;
+    opacity: 1 !important;
+    display: block !important;
 }
 
-/* --- הבובות בפינות --- */
+svg { overflow: visible !important; }
+/* --- תוספת: בובות דקורטיביות לפינות --- */
 .corner-doll {
     position: absolute; 
-    width: 280px;       
+    width: 280px;        
     height: auto;
     top: -160px;        
     z-index: 5001;      
@@ -168,11 +273,18 @@ svg { height: 70vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
 }
 
 .doll-left {
-    left: -120px;       
+    left: -120px;        
     transform: rotate(-15deg);
 }
 
 .doll-right {
-    right: -120px;      
+    right: -120px;       
     transform: rotate(15deg);
+}
+
+/* התאמה למובייל - הסתרת בובות הקישוט במסכים קטנים כדי לא להסתיר את המסך */
+@media (max-width: 768px) {
+    .corner-doll {
+        display: none;
+    }
 }
