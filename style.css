@@ -148,7 +148,7 @@
     #map-zoom-container {
         position: relative;
         /* Important: This lets the map decide its own size based on the screen limits */
-        height: 100%;
+        height: 95%;
         width: auto;
         
         /* Ensure it preserves the 300x850 ratio */
@@ -158,6 +158,7 @@
         justify-content: center;
         align-items: center;
         transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+        margin: auto;
     }
 
     /* 4. The SVG - No stretching allowed */
@@ -376,16 +377,17 @@
         /* FIX: Prevents vertical overflow on mobile */
         #map-viewport {
             flex: 1;
-            padding: 10px;
-            height: auto;
-            min-height: 0;
+            padding: 5px;
+            align-items: center;
+            /* height: auto;
+            min-height: 0; */
         }
 
         /* On mobile, shrink slightly to avoid hitting the edges */
     /* Ensure this matches the logic we set earlier */
         #map-zoom-container {
             height: 90%; 
-            max-width: 95vw; /* Safety buffer */
+            max-height: 90%;/* Safety buffer */
         }
 
         svg {
