@@ -10,16 +10,21 @@ body, html {
     padding: 0; 
     width: 100%; 
     height: 100%;
-    height: 100dvh; /* גובה דינמי למובייל */
+    height: 100dvh; /* גובה דינמי מדויק */
     background: var(--bg-black); 
     color: white;
     font-family: 'Orbitron', 'Heebo', sans-serif; 
     
-    /* --- הנעילה ההרמטית --- */
-    overflow: hidden; /* מבטל גלילה לחלוטין */
-    position: fixed;  /* נועל את המסך במקום - קריטי למובייל */
-    top: 0;
-    left: 0;
+    /* --- הגדרות הנעילה ההרמטית --- */
+    overflow: hidden;           /* מבטל פסי גלילה */
+    position: fixed;            /* נועל את הדף למסך */
+    top: 0; left: 0; right: 0; bottom: 0;
+    
+    /* מונע "מתיחה" של הדף למעלה/למטה באייפון */
+    overscroll-behavior: none;  
+    
+    /* מונע גלילה במגע (אצבע) */
+    touch-action: none; 
 }
 
 /* --- רקעים ואפקטים --- */
