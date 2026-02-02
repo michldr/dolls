@@ -19,18 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!file) return;
 
         const statusText = document.getElementById('file-status');
-        statusText.innerText = "סטטוס: מעלה תמונה...";
+        statusText.innerText = "סטטוס: מעבד צבע ירוק...";
 
         const reader = new FileReader();
         reader.onload = function(event) {
-            // TEMPORARY TEST: Skip green screen processing entirely
-            // Use raw photo like bigmap does
-            dollPhotoURL = event.target.result;
-            statusText.innerText = "סטטוס: תמונה הועלתה בהצלחה! ✓";
-            statusText.style.color = "#00ff00";
-            console.log("Raw photo loaded, size:", (dollPhotoURL.length / 1024).toFixed(0), "KB");
-
-            /* ORIGINAL GREEN SCREEN CODE - DISABLED FOR TESTING
             const img = new Image();
             img.onload = function() {
                 dollPhotoURL = removeGreenBackground(img);
@@ -38,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 statusText.style.color = "#00ff00";
             };
             img.src = event.target.result;
-            */
         };
         reader.readAsDataURL(file);
     });
