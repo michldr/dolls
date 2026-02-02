@@ -261,4 +261,7 @@ const missionControl = {
         images: ["img/yizreel.png"],
         x: 35, y: 22
     }
+
+};
+
 };

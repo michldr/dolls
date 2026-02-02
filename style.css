@@ -197,6 +197,7 @@ svg { height: 70vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
 }
 
 .confirm-buttons .btn {
+    width: 500%;
     width: 100%;
     font-size: 1.3rem;
     padding: 18px;
@@ -215,12 +216,12 @@ svg { height: 70vh; filter: drop-shadow(0 0 15px var(--neon-cyan)); }
 
 .corner-doll {
     position: absolute;
-    width: 150px;       /* גודל הבובה - מתאים לריבוע הגדול שלך (700px) */
+    width: 300px;       /* שיניתי מ-150px ל-200px כדי שיהיו גדולות יותר */
     height: auto;
-    top: -90px;         /* גורם להן "לצוף" מעל הקו העליון */
-    z-index: 5001;      /* מבטיח שהן מעל התיבה (שהיא 5000) */
-    filter: drop-shadow(0 0 10px var(--neon-cyan)); /* הילה זוהרת */
-    pointer-events: none; /* כדי שלא יפריעו להקלדה */
+    top: -180px;        /* הגדלתי טיפה את המספר השלילי כדי שהן ימשיכו לבלוט למעלה */
+    z-index: 5001;
+    filter: drop-shadow(0 0 15px var(--neon-cyan));
+    pointer-events: none;
 }
 
 .doll-left {
