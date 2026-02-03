@@ -148,7 +148,7 @@ function initializePortal() {
     // Position doll at Jerusalem and make it visible
     const dollContainer = document.getElementById('doll-container');
     const dollImg = document.getElementById('map-doll-img');
-    const jerusalemCoords = { x: 53.8, y: 41.3 };
+    const jerusalemCoords = { x: 52.5, y: 40.0 };
 
     dollContainer.style.left = jerusalemCoords.x + '%';
     dollContainer.style.top = jerusalemCoords.y + '%';

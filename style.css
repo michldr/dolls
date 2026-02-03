@@ -6,25 +6,25 @@
 }
 
 body, html {
-    margin: 0; 
-    padding: 0; 
-    width: 100%; 
+    margin: 0;
+    padding: 0;
+    width: 100%;
     height: 100%;
     height: 100dvh; /* גובה דינמי מדויק */
-    background: var(--bg-black); 
+    background: var(--bg-black);
     color: white;
-    font-family: 'Orbitron', 'Heebo', sans-serif; 
-    
+    font-family: 'Orbitron', 'Heebo', sans-serif;
+
     /* --- הגדרות הנעילה ההרמטית --- */
     overflow: hidden;           /* מבטל פסי גלילה */
     position: fixed;            /* נועל את הדף למסך */
     top: 0; left: 0; right: 0; bottom: 0;
-    
+
     /* מונע "מתיחה" של הדף למעלה/למטה באייפון */
-    overscroll-behavior: none;  
-    
+    overscroll-behavior: none;
+
     /* מונע גלילה במגע (אצבע) */
-    touch-action: none; 
+    touch-action: none;
 }
 
 /* --- רקעים ואפקטים --- */
@@ -50,6 +50,7 @@ body, html {
 .hud-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.95); z-index: 5000; display: flex; align-items: center; justify-content: center;
+    overflow: visible;
 }
 
 .sync-box {
@@ -57,6 +58,7 @@ body, html {
     width: 700px; padding: 60px; border: 2px solid var(--neon-cyan);
     display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;
     background: var(--glass); box-shadow: 0 0 40px var(--neon-cyan);
+    overflow: visible;
 }
 
 .sync-box h1 { font-size: 2.8rem; margin-bottom: 10px; color: var(--neon-cyan); text-shadow: 0 0 15px var(--neon-cyan); }
@@ -70,13 +72,13 @@ body, html {
     overflow: hidden; position: fixed;
 }
 
-.hud-header { 
-    flex: 0 0 auto; 
-    height: 120px; 
-    padding: 10px; 
-    box-sizing: border-box; 
+.hud-header {
+    flex: 0 0 auto;
+    height: 120px;
+    padding: 10px;
+    box-sizing: border-box;
     z-index: 100;
-    
+
     /* שורות המירכוז החדשות */
     display: flex;
     flex-direction: column;
@@ -99,17 +101,17 @@ body, html {
 #map-zoom-container {
     position: relative;
     /* הגדרות למחשב - גובה מקסימלי */
-    height: 98%; 
-    aspect-ratio: 300 / 850; 
-    width: auto; 
-    
+    height: 98%;
+    aspect-ratio: 300 / 850;
+    width: auto;
+
     display: flex; justify-content: center; align-items: center;
     transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
     margin: auto;
     /* --- התיקון למפה --- */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
-    
+
     /* בטיחות */
     min-width: 50px;
 }
@@ -121,11 +123,11 @@ svg {
     filter: drop-shadow(0 0 15px var(--neon-cyan));
 }
 
-.israel-shape { 
-    fill: rgba(0, 255, 255, 0.05); 
-    stroke: var(--neon-cyan); stroke-width: 2; 
+.israel-shape {
+    fill: rgba(0, 255, 255, 0.05);
+    stroke: var(--neon-cyan); stroke-width: 2;
     stroke-linejoin: round;
-    filter: drop-shadow(0 0 5px var(--neon-cyan)); 
+    filter: drop-shadow(0 0 5px var(--neon-cyan));
 }
 
 /* --- אלמנטים על המפה --- */
@@ -144,31 +146,31 @@ svg {
 }
 
 /* הבובה - גודל יחסי באחוזים */
-#doll-container { 
-    position: absolute; 
+#doll-container {
+    position: absolute;
     width: 12%; /* גודל דינמי */
     height: auto; aspect-ratio: 1 / 1;
 /* שימוש ב-GPU בלבד */
     transform: translate(-50%, -50%) translate3d(0,0,0);
     -webkit-transform: translate(-50%, -50%) translate3d(0,0,0);
-    
+
     z-index: 60; pointer-events: none;
-    
+
     /* אנימציה ליניארית פשוטה שלא מכבידה על המעבד */
     transition: left 2s linear, top 2s linear;
     will-change: left, top;}
 
-#map-doll-img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: contain; 
-    
+#map-doll-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
 /* ביטול מוחלט של כל אפקט צל/זוהר בזמן תנועה */
     filter: none !important;
     -webkit-filter: none !important;
     box-shadow: none !important;
-    
-    display: block; 
+
+    display: block;
 }
 /* --- פופ-אפ וכפתורים --- */
 .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9000; display: none; align-items: center; justify-content: center; }
@@ -193,68 +195,100 @@ svg {
 
 /* --- התאמה למובייל (Mobile Fix) - שלב 1 --- */
 @media (max-width: 768px) {
-    
+
     /* 1. כותרת גמישה - נותן לה "לנשום" בלי להסתיר */
-    .hud-header { 
-        height: auto; 
-        min-height: 100px; 
+    .hud-header {
+        height: auto;
+        min-height: 100px;
         flex: 0 0 auto;
         padding-bottom: 10px;
     }
 
     /* 2. תיקון המפה החתוכה */
     #map-zoom-container {
-        /* זה התיקון: גובה של 65% מהמסך משאיר בדיוק מקום לכותרת ולשוליים */
-        height: 65vh;  
-        
-        width: auto;   
-        max-width: 95vw; 
+        height: 65vh;
+        width: auto;
+        max-width: 95vw;
         aspect-ratio: 300 / 850;
         margin: 0 auto;
     }
 
     /* 3. הקטנת הבובה בנייד */
     #doll-container {
-        width: 15%; 
+        width: 15%;
     }
 
-    /* 4. התאמות כלליות למסכים קטנים */
-    .sync-box { width: 90%; padding: 30px 20px; min-height: auto; }
-    .sync-box h1 { font-size: 2rem; }
-    .terminal-input { width: 90%; font-size: 1.4rem; padding: 12px; }
-    
+    /* 4. מסך פתיחה - קומפקטי יותר כדי שהבובות ייראו */
+    .sync-box {
+        width: 75%;
+        padding: 20px 15px;
+        min-height: auto;
+        gap: 12px;
+    }
+    .sync-box h1 { font-size: 1.6rem; margin-bottom: 5px; }
+    .terminal-input { width: 90%; font-size: 1.2rem; padding: 10px; margin: 10px 0; }
+    .upload-area .btn { padding: 12px 20px; font-size: 0.9rem; }
+    #file-status { font-size: 0.8rem; margin: 5px 0; }
+
     .control-panel { flex-direction: row; gap: 10px; flex-wrap: wrap; justify-content: center; }
     #destination { width: 180px; height: 40px; font-size: 0.9rem; }
-    
+
     .city-label { font-size: 7px; }
     .city-dot { width: 3px; height: 3px; }
-    
-    .modal-container { flex-direction: column; width: 95%; max-height: 80vh; overflow-y: auto; }
-/* בתוך @media (max-width: 768px) */
-    
+
+    /* 5. מודל הסלפי - שיפור למובייל */
+    .modal-container {
+        flex-direction: column;
+        width: 92%;
+        max-height: 85vh;
+        overflow-y: auto;
+        border-radius: 10px;
+    }
+
     .selfie-view {
         width: 100%;
-        height: 250px;
+        height: 45vw;
+        min-height: 200px;
+        max-height: 280px;
         flex-shrink: 0;
         flex-grow: 0;
         display: block;
         position: relative;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
     }
     .doll-overlay {
-        width: 130px;
-        bottom: -10px;
-        right: -10px;
+        width: 110px;
+        bottom: 5px;
+        right: 5px;
     }
     .fact-card {
         width: auto;
-        padding: 15px;
+        padding: 18px 15px;
         border-right: none;
         border-top: 1px solid var(--neon-cyan);
+        text-align: center;
+    }
+    .fact-card h2 {
+        font-size: 1.3rem;
+        color: var(--neon-cyan);
+        text-shadow: 0 0 10px var(--neon-cyan);
+    }
+    .fact-card p,
+    .fact-card ul {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        text-align: right;
+    }
+    .fact-card ul {
+        padding-right: 15px;
+        margin: 8px 0;
     }
     .fact-card .btn {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+        padding: 12px 20px;
+        font-size: 0.95rem;
         margin: 5px;
+        width: 80%;
     }
     .confirm-box { width: 90%; padding: 30px 20px; }
     .confirm-box h2 { font-size: 1.8rem; }
@@ -277,35 +311,35 @@ svg {
 svg { overflow: visible !important; }
 /* --- תוספת: בובות דקורטיביות לפינות --- */
 .corner-doll {
-    position: absolute; 
-    width: 280px;        
+    position: absolute;
+    width: 280px;
     height: auto;
-    top: -160px;        
-    z-index: 5001;      
+    top: -160px;
+    z-index: 5001;
     filter: drop-shadow(0 0 15px var(--neon-cyan));
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 .doll-left {
-    left: -120px;        
+    left: -120px;
     transform: rotate(-15deg);
 }
 
 .doll-right {
-    right: -120px;       
+    right: -120px;
     transform: rotate(15deg);
 }
 
 /* התאמה למובייל - בובות קישוט קטנות יותר */
 @media (max-width: 768px) {
     .corner-doll {
-        width: 120px;
-        top: -70px;
+        width: 90px;
+        top: -45px;
     }
     .doll-left {
-        left: -30px;
+        left: -15px;
     }
     .doll-right {
-        right: -30px;
+        right: -15px;
     }
 }
