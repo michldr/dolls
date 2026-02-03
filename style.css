@@ -175,9 +175,29 @@ svg {
 /* --- פופ-אפ וכפתורים --- */
 .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9000; display: none; align-items: center; justify-content: center; }
 .modal-container { display: flex; border: 1px solid var(--neon-cyan); background: var(--bg-black); }
-.selfie-view { position: relative; width: 450px; height: 550px; overflow: hidden; background: #000; }
-#city-bg { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.5s ease-in-out; }
-.doll-overlay { position: absolute; bottom: -20px; right: -20px; width: 280px; transform: rotate(-5deg); z-index: 10; }
+.selfie-view { position: relative; width: 500px; height: 400px; overflow: hidden; background: #000; }
+#city-bg { 
+    width: 100%; 
+    height: 100%; 
+    
+    /* השינוי החשוב: contain מציג את התמונה במלואה בלי לחתוך כלום */
+    object-fit: contain; 
+    
+    background: #000; /* רקע שחור למקרה שהפרופורציות לא זהות */
+    transition: opacity 0.5s ease-in-out; 
+}
+.doll-overlay { 
+    position: absolute; 
+    bottom: 10px;   /* הרמתי קצת מהרצפה */
+    right: 10px;    /* הזזתי קצת מהקיר */
+    
+    /* השינוי: הקטנתי מ-280px ל-160px */
+    width: 160px;   
+    
+    transform: rotate(-5deg); 
+    z-index: 10;
+    pointer-events: none; /* כדי שהבובה לא תפריע ללחיצות */
+}
 #selfie-doll-img { width: 100%; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7)); }
 .fact-card { width: 260px; padding: 25px; background: var(--glass); text-align: right; border-right: 1px solid var(--neon-cyan); }
 .btn { background: transparent; border: 2px solid var(--neon-cyan); color: var(--neon-cyan); padding: 16px 35px; cursor: pointer; font-family: 'Orbitron'; margin: 10px; font-weight: bold; font-size: 1.2rem; transition: 0.3s; }
@@ -247,9 +267,10 @@ svg {
 
     .selfie-view {
         width: 100%;
-        height: 45vw;
-        min-height: 200px;
-        max-height: 280px;
+        /* תיקון: גובה דינמי גדול יותר (חצי מסך) כדי שהתמונה לא תיחתך */
+        height: 50vh; 
+        min-height: 350px; /* גובה מינימלי בטוח */
+        
         flex-shrink: 0;
         flex-grow: 0;
         display: block;
@@ -258,7 +279,7 @@ svg {
         overflow: hidden;
     }
     .doll-overlay {
-        width: 110px;
+        width: 120px;
         bottom: 5px;
         right: 5px;
     }
