@@ -232,16 +232,30 @@ svg {
     .modal-container { flex-direction: column; width: 95%; max-height: 80vh; overflow-y: auto; }
 /* בתוך @media (max-width: 768px) */
     
-    .selfie-view { 
-        width: 100%; 
-        height: 250px; 
-        
-        /* --- התיקון הקריטי --- */
-        flex-shrink: 0;  /* אוסר על התמונה להתכווץ גם אם יש הרבה טקסט */
-        flex-grow: 0;    /* שומר על גובה קבוע */
-        display: block;  /* מוודא שזה תופס מקום */
+    .selfie-view {
+        width: 100%;
+        height: 250px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        display: block;
         position: relative;
-    }    
+    }
+    .doll-overlay {
+        width: 130px;
+        bottom: -10px;
+        right: -10px;
+    }
+    .fact-card {
+        width: auto;
+        padding: 15px;
+        border-right: none;
+        border-top: 1px solid var(--neon-cyan);
+    }
+    .fact-card .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin: 5px;
+    }
     .confirm-box { width: 90%; padding: 30px 20px; }
     .confirm-box h2 { font-size: 1.8rem; }
 }
@@ -282,9 +296,16 @@ svg { overflow: visible !important; }
     transform: rotate(15deg);
 }
 
-/* התאמה למובייל - הסתרת בובות הקישוט במסכים קטנים כדי לא להסתיר את המסך */
+/* התאמה למובייל - בובות קישוט קטנות יותר */
 @media (max-width: 768px) {
     .corner-doll {
-        display: none;
+        width: 120px;
+        top: -70px;
+    }
+    .doll-left {
+        left: -30px;
+    }
+    .doll-right {
+        right: -30px;
     }
 }
