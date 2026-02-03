@@ -9,8 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
-<body>
-    <div class="bg-grid"></div>
+<body> <div class="bg-grid"></div>
     <div class="scan-line"></div>
     <div id="flash"></div>
     
@@ -26,10 +25,11 @@
                 <button class="btn" onclick="document.getElementById('doll-photo-input').click()">צלם בובה (רקע ירוק מומלץ)</button>
                 <p id="file-status">סטטוס: ממתין לסריקה...</p>
             </div>
+            
             <button class="btn btn-pink" onclick="initializePortal()">להתחיל</button>
         </div>
     </div>
-    
+
     <div id="main-interface" style="display: none;">
         <div class="hud-header">
             <h2 id="welcome-message">SYS_READY // </h2>
@@ -51,14 +51,13 @@
             </div>
         </div>
     </div>
-    
+
     <div id="travel-report" class="modal">
         <div class="modal-container">
             <div class="selfie-view">
-                <img id="city-bg" src="">
-                
+                <img id="city-bg" src=""> 
                 <div class="doll-overlay">
-                    <img id="selfie-doll-img" src="">
+                    <img id="selfie-doll-img" src=""> 
                 </div>
             </div>
             <div class="fact-card">
@@ -66,12 +65,10 @@
                 <hr style="border:1px solid var(--neon-cyan); margin:15px 0;">
                 <p id="city-fact"></p>
                 <button class="btn btn-pink" onclick="closeTravel()">חזור למפה</button>
-                <button class="btn" onclick="showConfirmDialog()">אשר בחירה</button>
             </div>
         </div>
     </div>
-    
-    <!-- NEW: Confirmation Dialog -->
+
     <div id="confirm-dialog" class="modal">
         <div class="confirm-box">
             <h2>האם אתה בטוח?</h2>
